@@ -1,4 +1,5 @@
 ﻿using AncoraMVVM.Base.Interfaces;
+using AncoraMVVM.Base.IoC;
 using Microsoft.Phone.Controls;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,18 @@ namespace AncoraMVVM.Phone.Implementations
 {
     public class NavigationService : INavigationService
     {
+        private IDispatcher dispatcher;
         private PhoneApplicationFrame Frame
         {
             get
             {
                 return Application.Current.RootVisual as PhoneApplicationFrame;
             }
+        }
+
+        public NavigationService()
+        {
+            dispatcher = Dependency.Resolve<IDispatcher>();
         }
 
         public void Navigate(string page)
@@ -26,12 +33,12 @@ namespace AncoraMVVM.Phone.Implementations
 
         public void Navigate(Uri page)
         {
-            Frame.Navigate(page);
+            dispatcher.InvokeIfRequired(() => Frame.Navigate(page));
         }
 
         public void GoBack()
         {
-            Frame.GoBack();
+            dispatcher.InvokeIfRequired(Frame.GoBack);
         }
 
         public bool CanGoBack
