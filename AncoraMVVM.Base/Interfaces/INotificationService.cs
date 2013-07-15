@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AncoraMVVM
+namespace AncoraMVVM.Base.Interfaces
 {
     public interface INotificationService
     {

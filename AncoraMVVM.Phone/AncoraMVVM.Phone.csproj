@@ -83,7 +83,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Implementations\Dispatcher.cs" />
+    <Compile Include="Implementations\NavigationService.cs" />
+    <Compile Include="Implementations\NotificationService.cs" />
+    <Compile Include="Implementations\GlobalProgress.cs" />
+    <Compile Include="PhoneDependencyModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AncoraMVVM.Base\AncoraMVVM.Base.csproj">
+      <Project>{56998798-C602-4805-8900-D180ABC5AABE}</Project>
+      <Name>AncoraMVVM.Base</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

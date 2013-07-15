@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Goinout.ViewModels
+namespace AncoraMVVM.Base.Interfaces
 {
     public interface INavigationService
     {
+        void Navigate(string page);
+        void Navigate(Uri page);
+        void GoBack();
+        bool CanGoBack { get; }
     }
 }

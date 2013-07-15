@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AncoraMVVM.Base.Interfaces;
+using AncoraMVVM.Base.IoC;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using AncoraMVVM;
 
-namespace Goinout.ViewModels
+namespace AncoraMVVM.Base
 {
-    public class ViewModelBase : INotifyPropertyChanged 
+    public class ViewModelBase : INotifyPropertyChanged
     {
-        protected INavigationService Navigator {get; private set;}
+        protected INavigationService Navigator { get; private set; }
         protected INotificationService Notificator { get; private set; }
         protected IDispatcher Dispatcher { get; private set; }
+
+        public ViewModelBase()
+        {
+            Navigator = Dependency.Resolve<INavigationService>();
+            Notificator = Dependency.Resolve<INotificationService>();
+            Dispatcher = Dependency.Resolve<IDispatcher>();
+        }
 
         public ViewModelBase(INavigationService navigationService, INotificationService notificationService, IDispatcher dispatcher)
         {
