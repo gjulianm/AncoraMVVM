@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AncoraMVVM.Base.IoC
 {
@@ -13,12 +11,12 @@ namespace AncoraMVVM.Base.IoC
 
     public interface IDependencyModule
     {
-        public IDictionary<Type, DependencyInfo> Dependencies { get; }
+        IDictionary<Type, DependencyInfo> Dependencies { get; }
     }
 
     public class DependencyModule : IDependencyModule
     {
-        public Dictionary<Type, DependencyInfo> Dependencies { get; set; }
+        public IDictionary<Type, DependencyInfo> Dependencies { get; set; }
 
         public DependencyModule()
         {
@@ -27,7 +25,7 @@ namespace AncoraMVVM.Base.IoC
 
         protected void AddDep<T, TImpl>(bool singleton = false)
         {
-            Dependencies.Add(typeof(T), 
+            Dependencies.Add(typeof(T),
                 new DependencyInfo
                 {
                     TargetType = typeof(TImpl),

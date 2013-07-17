@@ -1,8 +1,5 @@
-﻿using AncoraMVVM.Base.IoC;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AncoraMVVM.Base.IoC
 {
@@ -10,6 +7,15 @@ namespace AncoraMVVM.Base.IoC
     {
         private static Dictionary<Type, Type> typeMap = new Dictionary<Type, Type>();
         private static Dictionary<Type, object> singletonMap = new Dictionary<Type, object>();
+
+        /// <summary>
+        /// Clears the internal dictionaries. For testing purposes.
+        /// </summary>
+        internal static void Clear()
+        {
+            typeMap.Clear();
+            singletonMap.Clear();
+        }
 
         public static void Register<T, TImpl>(bool singleton = false)
         {
