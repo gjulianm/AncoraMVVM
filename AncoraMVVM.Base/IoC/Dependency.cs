@@ -33,10 +33,13 @@ namespace AncoraMVVM.Base.IoC
         public static T Resolve<T>()
         {
             object val;
+            Type type;
             if (singletonMap.TryGetValue(typeof(T), out val))
                 return (T)val;
+            else if (typeMap.TryGetValue(typeof(T), out type))
+                return (T)Activator.CreateInstance(type);
             else
-                return (T)Activator.CreateInstance(typeMap[typeof(T)]);
+                throw new KeyNotFoundException("Couldn't resolve for type " + typeof(T).FullName);
         }
 
         public static void RegisterModule(IDependencyModule module)

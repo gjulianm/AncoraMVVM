@@ -2,12 +2,7 @@
 using AncoraMVVM.Base.IoC;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 
@@ -23,10 +18,13 @@ namespace AncoraMVVM.Phone.Implementations
         {
             dispatcher = Dependency.Resolve<IDispatcher>();
             var frame = Application.Current.RootVisual as PhoneApplicationFrame;
-            Initialize(frame);
+
+            if (frame != null)
+                Initialize(frame);
+
         }
 
-        private void Initialize(PhoneApplicationFrame frame)
+        public void Initialize(PhoneApplicationFrame frame)
         {
             indicator = new ProgressIndicator();
 
