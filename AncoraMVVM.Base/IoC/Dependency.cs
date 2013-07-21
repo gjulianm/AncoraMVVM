@@ -5,6 +5,8 @@ namespace AncoraMVVM.Base.IoC
 {
     public static class Dependency
     {
+        public static IObjectProvider Provider { get; set; }
+
         private static Dictionary<Type, Type> typeMap = new Dictionary<Type, Type>();
         private static Dictionary<Type, object> singletonMap = new Dictionary<Type, object>();
 
@@ -30,8 +32,11 @@ namespace AncoraMVVM.Base.IoC
                 singletonMap.Add(generic, Activator.CreateInstance(impl));
         }
 
-        public static T Resolve<T>()
+        public static T Resolve<T>() where T : class
         {
+            if (Provider != null)
+                return Provider.Resolve<T>();
+
             object val;
             Type type;
             if (singletonMap.TryGetValue(typeof(T), out val))
