@@ -37,6 +37,7 @@
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionCommand.cs" />
     <Compile Include="IoC\Dependency.cs" />
     <Compile Include="IoC\IDependencyModule.cs" />
     <Compile Include="Interfaces\IDispatcher.cs" />
