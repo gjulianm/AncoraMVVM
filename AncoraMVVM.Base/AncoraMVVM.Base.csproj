@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="IoC\Dependency.cs" />
     <Compile Include="IoC\IDependencyModule.cs" />
     <Compile Include="Interfaces\IDispatcher.cs" />
@@ -45,6 +46,7 @@
     <Compile Include="Interfaces\INotificationService.cs" />
     <Compile Include="Interfaces\IProgressIndicator.cs" />
     <Compile Include="IoC\IObjectProvider.cs" />
+    <Compile Include="NavigateCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>

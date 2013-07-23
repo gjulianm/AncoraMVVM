@@ -13,6 +13,7 @@ namespace AncoraMVVM.Phone
             AddDep<IDispatcher, Dispatcher>();
             AddDep<IProgressIndicator, GlobalProgress>(true);
             AddDep<INavigationService, NavigationService>(true);
+            AddDep<IConfigurationManager, ConfigurationManager>(true);
         }
     }
 }

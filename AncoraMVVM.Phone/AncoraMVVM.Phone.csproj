@@ -83,6 +83,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Implementations\ConfigurationManager.cs" />
     <Compile Include="Implementations\Dispatcher.cs" />
     <Compile Include="Implementations\NavigationService.cs" />
     <Compile Include="Implementations\NotificationService.cs" />
