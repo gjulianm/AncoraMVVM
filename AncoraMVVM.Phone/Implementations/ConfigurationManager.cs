@@ -21,16 +21,6 @@ namespace AncoraMVVM.Phone.Implementations
 
         private IsolatedStorageSettings config = IsolatedStorageSettings.ApplicationSettings;
 
-        private T CreateDefault<T>()
-        {
-            var type = typeof(T);
-
-            if (type.HasParameterlessConstructor())
-                return Activator.CreateInstance<T>();
-            else
-                return default(T);
-        }
-
         public T Get<T>(ConfigItem<T> key)
         {
             object cached;
@@ -47,10 +37,7 @@ namespace AncoraMVVM.Phone.Implementations
                 {
                     if (!config.TryGetValue<T>(key.Key, out item))
                     {
-                        if (key.DefaultValue != null)
-                            item = key.DefaultValue;
-                        else
-                            item = CreateDefault<T>();
+                        item = key.DefaultValue;
 
                         config.Add(key.Key, item);
                         config.Save();
@@ -59,17 +46,14 @@ namespace AncoraMVVM.Phone.Implementations
             }
             catch (InvalidCastException)
             {
-                item = CreateDefault<T>();
+                item = default(T);
                 lock (storageLock)
                 {
                     config.Remove(key.Key);
                     config.Save();
                 }
             }
-
-            if (item == null)
-                item = CreateDefault<T>();
-
+            
             cachedObjects[key.Key] = item;
 
             return item;
