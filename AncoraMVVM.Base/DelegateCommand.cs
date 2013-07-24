@@ -1,22 +1,38 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
+
+
 
 namespace AncoraMVVM.Base
 {
+#pragma warning disable 1998
     public class DelegateCommand : ICommand
     {
-        private Action<object> executeAction;
+        private Func<object, Task> executeAction;
         private Func<object, bool> canExecuteAction;
 
         public DelegateCommand(Action<object> execute)
+        {
+            executeAction = async (p) => execute(p);
+            canExecuteAction = p => true;
+        }
+
+        public DelegateCommand(Action<object> execute, Func<object, bool> canExecute)
+        {
+            executeAction = async (p) => execute(p);
+            canExecuteAction = canExecute;
+        }
+
+        public DelegateCommand(Func<object, Task> execute)
         {
             executeAction = execute;
             canExecuteAction = p => true;
         }
 
-        public DelegateCommand(Action<object> execute, Func<object, bool> canExecute)
+        public DelegateCommand(Func<object, Task> execute, Func<object, bool> canExecute)
         {
             executeAction = execute;
             canExecuteAction = canExecute;
@@ -29,9 +45,9 @@ namespace AncoraMVVM.Base
 
         public event EventHandler CanExecuteChanged;
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
-            executeAction(parameter);
+            await executeAction(parameter);
         }
 
         public void RaiseCanExecuteChanged()
@@ -49,4 +65,5 @@ namespace AncoraMVVM.Base
             };
         }
     }
+#pragma warning restore 1998
 }

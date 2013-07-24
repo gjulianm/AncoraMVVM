@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AncoraMVVM.Base.Test
 {
@@ -9,7 +11,7 @@ namespace AncoraMVVM.Base.Test
         [TestMethod]
         public void CanExecute_NoConstructorParams_IsTrue()
         {
-            var cmd = new DelegateCommand(null);
+            var cmd = new DelegateCommand((p) => { });
             Assert.IsTrue(cmd.CanExecute(null));
         }
 
@@ -50,12 +52,28 @@ namespace AncoraMVVM.Base.Test
         {
             bool wasCalled = false;
             var not = new DummyNotifier();
-            var cmd = new DelegateCommand(null, (p) => p != null);
+            var cmd = new DelegateCommand((p) => { }, (p) => p != null);
             cmd.BindCanExecuteToProperty(not, "Number");
             cmd.CanExecuteChanged += (s, e) => wasCalled = true;
 
             not.Number = 123;
             Assert.IsTrue(wasCalled);
+        }
+
+        [TestMethod]
+        public void Execute_CalledAsyncAction_AsyncExecuted()
+        {
+            bool executed = false;
+            var cmd = new DelegateCommand(async (p) =>
+            {
+                await Task.Delay(500);
+                executed = true;
+            });
+
+            cmd.Execute(null);
+            Assert.IsFalse(executed);
+            Thread.Sleep(500);
+            Assert.IsTrue(executed);
         }
     }
 }
