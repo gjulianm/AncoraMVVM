@@ -49,6 +49,7 @@
     <Compile Include="NavigateCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SafeObservable.cs" />
+    <Compile Include="SortedFilteredObservable.cs" />
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
