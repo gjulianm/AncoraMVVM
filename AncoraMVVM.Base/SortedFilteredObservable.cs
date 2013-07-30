@@ -6,11 +6,15 @@ namespace AncoraMVVM.Base
 {
     public class SortedFilteredObservable<T> : SafeObservable<T>, IList
     {
-        IComparer<T> Comparer;
+        Func<T, T, int> Comparer;
         SafeObservable<T> discardedItems;
 
         public SortedFilteredObservable(IComparer<T> comparer)
-            : base()
+            : this(comparer.Compare)
+        {
+        }
+
+        public SortedFilteredObservable(Func<T, T, int> comparer)
         {
             Comparer = comparer;
             discardedItems = new SafeObservable<T>();
@@ -74,7 +78,7 @@ namespace AncoraMVVM.Base
             lock (this.sync)
             {
                 int i = 0;
-                while (i < Count && Comparer.Compare(item, base[i]) > 0)
+                while (i < Count && Comparer(item, base[i]) > 0)
                     i++;
 
                 base.Insert(i, item);
