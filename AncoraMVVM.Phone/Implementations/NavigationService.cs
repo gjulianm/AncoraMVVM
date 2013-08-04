@@ -29,12 +29,12 @@ namespace AncoraMVVM.Phone.Implementations
 
         public void Navigate(Uri page)
         {
-            dispatcher.InvokeIfRequired(() => Frame.Navigate(page));
+            dispatcher.BeginInvoke(() => Frame.Navigate(page));
         }
 
         public void GoBack()
         {
-            dispatcher.InvokeIfRequired(Frame.GoBack);
+            dispatcher.BeginInvoke(Frame.GoBack);
         }
 
         public bool CanGoBack
@@ -43,6 +43,14 @@ namespace AncoraMVVM.Phone.Implementations
             {
                 return Frame.CanGoBack;
             }
+        }
+
+        public void ClearNavigationStack()
+        {
+            dispatcher.BeginInvoke(() =>
+            {
+                while (Frame.RemoveBackEntry() != null) ;
+            });
         }
     }
 }
