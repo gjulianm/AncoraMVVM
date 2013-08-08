@@ -99,17 +99,8 @@ namespace AncoraMVVM.Base
 
         public void BulkAdd(IEnumerable<T> items)
         {
-            int added = 0;
             foreach (var item in items)
-            {
                 Add(item);
-                added++;
-                if (added >= 5)
-                {
-                    TaskEx.Delay(10).RunSynchronously();
-                    added = 0;
-                }
-            }
         }
 
 
