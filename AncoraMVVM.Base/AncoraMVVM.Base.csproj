@@ -37,6 +37,7 @@
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\ObservableCollectionExtension.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="IoC\Dependency.cs" />
