@@ -1,4 +1,5 @@
 ﻿
+using AncoraMVVM.Base.IoC;
 namespace AncoraMVVM.Base.Interfaces
 {
     /// <summary>
@@ -9,6 +10,12 @@ namespace AncoraMVVM.Base.Interfaces
     {
         public string Key { get; set; }
         public T DefaultValue { get; set; }
+
+        public T Get()
+        {
+            var config = Dependency.Resolve<IConfigurationManager>();
+            return config.Get(this);
+        }
     }
 
     public interface IConfigurationManager
