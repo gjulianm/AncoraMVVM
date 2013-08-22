@@ -89,6 +89,7 @@
     <Compile Include="Implementations\NotificationService.cs" />
     <Compile Include="Implementations\GlobalProgress.cs" />
     <Compile Include="PhoneDependencyModule.cs" />
+    <Compile Include="PhoneViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxUpdater.cs" />
   </ItemGroup>

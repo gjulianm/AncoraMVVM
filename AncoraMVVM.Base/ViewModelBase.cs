@@ -43,6 +43,14 @@ namespace AncoraMVVM.Base
             }
         }
 
+        public virtual void OnLoad()
+        {
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public virtual void OnNavigate()
+        {
+        }
     }
 }

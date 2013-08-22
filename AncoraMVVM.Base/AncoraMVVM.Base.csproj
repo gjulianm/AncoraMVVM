@@ -53,6 +53,8 @@
     <Compile Include="Collections\SortedFilteredObservable.cs" />
     <Compile Include="ToggleButton.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModelLocator\ViewModelAttribute.cs" />
+    <Compile Include="ViewModelLocator\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
