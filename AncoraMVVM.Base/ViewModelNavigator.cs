@@ -7,7 +7,7 @@ using System.Reflection;
 namespace AncoraMVVM.Base
 {
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
-    sealed class RootNamespaceAttribute : Attribute
+    public sealed class RootNamespaceAttribute : Attribute
     {
         // See the attribute guidelines at 
         //  http://go.microsoft.com/fwlink/?LinkId=85236

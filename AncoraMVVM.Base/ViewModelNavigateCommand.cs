@@ -5,13 +5,13 @@ using System.Windows.Input;
 
 namespace AncoraMVVM.Base
 {
-    public class NavigateCommand : ICommand
+    public class ViewModelNavigateCommand<T> : ICommand where T : ViewModelBase
     {
-        public string Target { get; set; }
+        public Type Target { get; set; }
 
-        public NavigateCommand(string page)
+        public ViewModelNavigateCommand()
         {
-            Target = page;
+            Target = typeof(T);
         }
 
         public bool CanExecute(object parameter)

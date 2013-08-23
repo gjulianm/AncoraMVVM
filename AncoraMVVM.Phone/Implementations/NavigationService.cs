@@ -19,26 +19,27 @@ namespace AncoraMVVM.Phone.Implementations
         }
 
         public NavigationService()
+            : base()
         {
             dispatcher = Dependency.Resolve<IDispatcher>();
         }
 
-        public void Navigate(string page)
+        public override void Navigate(string page)
         {
             Navigate(new Uri(page, UriKind.Relative));
         }
 
-        public void Navigate(Uri page)
+        public override void Navigate(Uri page)
         {
             dispatcher.BeginInvoke(() => Frame.Navigate(page));
         }
 
-        public void GoBack()
+        public override void GoBack()
         {
             dispatcher.BeginInvoke(Frame.GoBack);
         }
 
-        public bool CanGoBack
+        public override bool CanGoBack
         {
             get
             {
@@ -46,7 +47,7 @@ namespace AncoraMVVM.Phone.Implementations
             }
         }
 
-        public void ClearNavigationStack()
+        public override void ClearNavigationStack()
         {
             dispatcher.BeginInvoke(() =>
             {
