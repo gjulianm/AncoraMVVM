@@ -1,4 +1,5 @@
-﻿using AncoraMVVM.Base.Interfaces;
+﻿using AncoraMVVM.Base;
+using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using Microsoft.Phone.Controls;
 using System;
@@ -6,7 +7,7 @@ using System.Windows;
 
 namespace AncoraMVVM.Phone.Implementations
 {
-    public class NavigationService : INavigationService
+    public class NavigationService : ViewModelNavigationService
     {
         private IDispatcher dispatcher;
         private PhoneApplicationFrame Frame

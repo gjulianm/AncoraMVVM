@@ -55,6 +55,7 @@
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelLocator\ViewModelAttribute.cs" />
     <Compile Include="ViewModelLocator\ViewModelLocator.cs" />
+    <Compile Include="ViewModelNavigator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
