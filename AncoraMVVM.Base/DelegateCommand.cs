@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 
@@ -11,31 +10,28 @@ namespace AncoraMVVM.Base
 #pragma warning disable 1998
     public class DelegateCommand : ICommand
     {
-        private Func<object, Task> executeAction;
+        private Action<object> executeAction;
         private Func<object, bool> canExecuteAction;
 
         public DelegateCommand(Action<object> execute)
+            : this(execute, p => true)
         {
-            executeAction = async (p) => execute(p);
-            canExecuteAction = p => true;
         }
 
         public DelegateCommand(Action<object> execute, Func<object, bool> canExecute)
         {
-            executeAction = async (p) => execute(p);
+            executeAction = execute;
             canExecuteAction = canExecute;
         }
 
-        public DelegateCommand(Func<object, Task> execute)
+        public DelegateCommand(Action execute)
+            : this(p => execute(), p => true)
         {
-            executeAction = execute;
-            canExecuteAction = p => true;
         }
 
-        public DelegateCommand(Func<object, Task> execute, Func<object, bool> canExecute)
+        public DelegateCommand(Action execute, Func<bool> canExecute)
+            : this(p => execute(), p => canExecute())
         {
-            executeAction = execute;
-            canExecuteAction = canExecute;
         }
 
         public bool CanExecute(object parameter)
@@ -47,7 +43,7 @@ namespace AncoraMVVM.Base
 
         public async void Execute(object parameter)
         {
-            await executeAction(parameter);
+            executeAction(parameter);
         }
 
         public void RaiseCanExecuteChanged()
