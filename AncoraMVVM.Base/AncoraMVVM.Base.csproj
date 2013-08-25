@@ -48,6 +48,7 @@
     <Compile Include="Interfaces\IProgressIndicator.cs" />
     <Compile Include="IoC\IObjectProvider.cs" />
     <Compile Include="NavigateCommand.cs" />
+    <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\SafeObservable.cs" />
     <Compile Include="Collections\SortedFilteredObservable.cs" />
