@@ -1,26 +1,51 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
 
-namespace AncoraMVVM.Base
+namespace AncoraMVVM.Base.Collections
 {
-    public class SortedFilteredObservable<T> : SafeObservable<T>, IList
-    {
-        Func<T, T, int> Comparer;
-        SafeObservable<T> discardedItems;
+    public enum SortOrder { Ascending, Descending }
 
-        public SortedFilteredObservable(IComparer<T> comparer)
-            : this(comparer.Compare)
+    /// <summary>
+    /// A observable collection that supports filtering and 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class SortedFilteredObservable<T> : ObservableCollection<T>
+    {
+        IComparer<T> comparer;
+        public IComparer<T> Comparer
         {
+            get { return comparer ?? Comparer<T>.Default; }
+            set
+            {
+                if (comparer != value)
+                {
+                    comparer = value;
+                    ReorderList();
+                }
+            }
         }
 
-        public SortedFilteredObservable(Func<T, T, int> comparer)
+        SortOrder sortOrder;
+        public SortOrder SortOrder
         {
-            Comparer = comparer;
-            discardedItems = new SafeObservable<T>();
+            get { return sortOrder; }
+            set
+            {
+                if (sortOrder != value)
+                {
+                    sortOrder = value;
+                    ReorderList();
+                }
+            }
         }
 
         Predicate<T> filter;
+        /// <summary>
+        /// The filter used. If Filter(object) returns true, object is discarded.
+        /// </summary>
         public Predicate<T> Filter
         {
             get { return filter; }
@@ -33,7 +58,49 @@ namespace AncoraMVVM.Base
             }
         }
 
-        void ReevaluateDiscarded()
+        List<T> discardedItems;
+
+        /// <summary>
+        /// Create a instance without sorting nor filtering configured.
+        /// </summary>
+        public SortedFilteredObservable()
+        {
+            discardedItems = new List<T>();
+        }
+
+        /// <summary>
+        /// Create a instance with sorting enabled using the given comparer.
+        /// </summary>
+        /// <param name="comparer">Comparer.</param>
+        public SortedFilteredObservable(IComparer<T> comparer)
+            : this(null, comparer)
+        {
+        }
+
+
+        /// <summary>
+        /// Create a instance without sorting nor filtering configured.
+        /// </summary>
+        /// <param name="filter">Filter function, discards an item if predicate is true.</param>
+        public SortedFilteredObservable(Predicate<T> filter)
+            : this()
+        {
+        }
+
+        /// <summary>
+        /// Create a instance with sorting enabled using the given comparer.
+        /// </summary>
+        /// <param name="comparer">Comparer.</param>
+        /// <param name="filter">Filter function, discards an item if predicate is true.</param>
+        public SortedFilteredObservable(Predicate<T> filter, IComparer<T> comparer)
+            : this(filter)
+        {
+            Comparer = comparer;
+        }
+
+
+        #region Filter functions.
+        internal void ReevaluateDiscarded()
         {
             List<T> itemsAdded = new List<T>();
             foreach (var item in discardedItems)
@@ -49,7 +116,7 @@ namespace AncoraMVVM.Base
                 discardedItems.Remove(item);
         }
 
-        void ReevaluateInList()
+        internal void ReevaluateInList()
         {
             List<T> itemsToDelete = new List<T>();
             foreach (var item in this)
@@ -65,90 +132,76 @@ namespace AncoraMVVM.Base
                 this.Remove(item);
         }
 
-        bool Matches(T item)
+        internal bool Matches(T item)
         {
             if (filter == null)
                 return false;
 
             return filter.Invoke(item);
         }
+        #endregion
 
-        void OrderedInsert(T item)
+        #region Sorting functions
+        internal bool DoesAGoBeforeB(T a, T b)
         {
-            lock (this.sync)
-            {
-                int i = 0;
-                while (i < Count && Comparer(item, base[i]) > 0)
-                    i++;
+            var isAGreaterThanB = Comparer.Compare(a, b) > 0;
 
-                base.Insert(i, item);
-            }
+            if (SortOrder == SortOrder.Descending)
+                return isAGreaterThanB;
+            else
+                return !isAGreaterThanB;
         }
 
-        public override void Add(T item)
+        internal bool AreEqual(T a, T b)
+        {
+            return Comparer.Compare(a, b) == 0;
+        }
+
+        internal void OrderedInsert(T item)
+        {
+            int i = 0;
+            while (i < Count && DoesAGoBeforeB(item, base[i]))
+                i++;
+
+            base.InsertItem(i, item);
+        }
+
+        private void ReorderList()
+        {
+            IEnumerable<T> ordered;
+
+            if (sortOrder == Collections.SortOrder.Descending)
+                ordered = this.OrderByDescending(x => x, Comparer);
+            else
+                ordered = this.OrderBy(x => x, Comparer);
+
+            ordered = ordered.ToList();
+
+            var copyOfCurrent = Items.ToList();
+            var paired = ordered.Zip(copyOfCurrent);
+
+            // Clear the list
+            Items.Clear();
+
+            // And now readd the items, notifying of the corresponding replacements.
+            int i = 0;
+            foreach (var pair in paired)
+            {
+                Items.Add(pair.Item1);
+                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace,
+                    pair.Item1, pair.Item2, i));
+                i++;
+            }
+
+        }
+        #endregion
+
+        protected override void InsertItem(int index, T item)
         {
             if (Matches(item))
                 discardedItems.Add(item);
             else
                 OrderedInsert(item);
         }
-
-        object IList.this[int index]
-        {
-            get
-            {
-                return base[index];
-            }
-            set
-            {
-                if (value is T)
-                    base[index] = (T)value;
-            }
-        }
-
-        int IList.Add(object value)
-        {
-            if (value is T)
-                Add((T)value);
-            return Count - 1;
-        }
-
-        bool IList.Contains(object value)
-        {
-            return (value is T) && Contains((T)value);
-        }
-
-        int IList.IndexOf(object value)
-        {
-            return value is T
-                ? IndexOf((T)value)
-                : -1;
-        }
-
-        void IList.Insert(int index, object value)
-        {
-            if (value is T)
-                Insert(index, (T)value);
-        }
-
-        void IList.Remove(object value)
-        {
-            if (value is T)
-                Remove((T)value);
-        }
-
-        public bool IsSynchronized { get { return true; } }
-        public object SyncRoot { get { return sync; } }
-        public void CopyTo(Array array, int start)
-        {
-            int index = start;
-            foreach (var item in this)
-            {
-                array.SetValue(item, index);
-                index++;
-            }
-        }
-
-        public bool IsFixedSize { get { return false; } }
     }
 }

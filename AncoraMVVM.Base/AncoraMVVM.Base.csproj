@@ -37,8 +37,9 @@
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\IEnumerableExtensions.cs" />
     <Compile Include="Collections\ObservableCollectionExtension.cs" />
-    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="IoC\Dependency.cs" />
     <Compile Include="IoC\IDependencyModule.cs" />
@@ -47,16 +48,16 @@
     <Compile Include="Interfaces\INotificationService.cs" />
     <Compile Include="Interfaces\IProgressIndicator.cs" />
     <Compile Include="IoC\IObjectProvider.cs" />
-    <Compile Include="NavigateCommand.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\SafeObservable.cs" />
     <Compile Include="Collections\SortedFilteredObservable.cs" />
-    <Compile Include="ToggleButton.cs" />
+    <Compile Include="Commands\ToggleButton.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelLocator\ViewModelAttribute.cs" />
     <Compile Include="ViewModelLocator\ViewModelLocator.cs" />
-    <Compile Include="ViewModelNavigateCommand.cs" />
+    <Compile Include="Commands\ViewModelNavigateCommand.cs" />
     <Compile Include="ViewModelNavigator.cs" />
   </ItemGroup>
   <ItemGroup>

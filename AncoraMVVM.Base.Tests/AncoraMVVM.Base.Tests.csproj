@@ -42,6 +42,12 @@
     <Reference Include="Microsoft.Threading.Tasks.Extensions">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net45\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.6.1.0\lib\NET40\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows" />
@@ -59,11 +65,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DelegateCommandTests.cs" />
+    <Compile Include="Collections\SortedFilteredObservableTests.cs" />
+    <Compile Include="Commands\DelegateCommandTests.cs" />
     <Compile Include="IoC\DependencyTests.cs" />
     <Compile Include="MockProvider.cs" />
-    <Compile Include="NavigateCommandTests.cs" />
+    <Compile Include="Commands\NavigateCommandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Commands\ToggleButtonTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AncoraMVVM.Base\AncoraMVVM.Base.csproj">

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Base", "AncoraMVVM.Base\AncoraMVVM.Base.csproj", "{56998798-C602-4805-8900-D180ABC5AABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone", "AncoraMVVM.Phone\AncoraMVVM.Phone.csproj", "{19F11B56-F786-4C60-9A32-6F64934568FC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Base.Tests", "AncoraMVVM.Base.Tests\AncoraMVVM.Base.Tests.csproj", "{9EB50B69-AEF9-4030-8522-2A18E319C84B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone7", "AncoraMVVM.Phone7\AncoraMVVM.Phone7.csproj", "{89B38CC5-A3BB-4C11-A21F-AEED6648736A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,18 +25,6 @@ Global
 		{56998798-C602-4805-8900-D180ABC5AABE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56998798-C602-4805-8900-D180ABC5AABE}.Release|ARM.ActiveCfg = Release|Any CPU
 		{56998798-C602-4805-8900-D180ABC5AABE}.Release|x86.ActiveCfg = Release|Any CPU
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Debug|ARM.ActiveCfg = Debug|ARM
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Debug|ARM.Build.0 = Debug|ARM
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Debug|x86.ActiveCfg = Debug|x86
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Debug|x86.Build.0 = Debug|x86
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Release|ARM.ActiveCfg = Release|ARM
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Release|ARM.Build.0 = Release|ARM
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Release|x86.ActiveCfg = Release|x86
-		{19F11B56-F786-4C60-9A32-6F64934568FC}.Release|x86.Build.0 = Release|x86
 		{9EB50B69-AEF9-4030-8522-2A18E319C84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9EB50B69-AEF9-4030-8522-2A18E319C84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EB50B69-AEF9-4030-8522-2A18E319C84B}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -45,6 +33,14 @@ Global
 		{9EB50B69-AEF9-4030-8522-2A18E319C84B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9EB50B69-AEF9-4030-8522-2A18E319C84B}.Release|ARM.ActiveCfg = Release|Any CPU
 		{9EB50B69-AEF9-4030-8522-2A18E319C84B}.Release|x86.ActiveCfg = Release|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{89B38CC5-A3BB-4C11-A21F-AEED6648736A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

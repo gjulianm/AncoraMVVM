@@ -39,7 +39,7 @@ namespace AncoraMVVM.Base.Tests
             else if (ConfigurationManager is T)
                 return (T)ConfigurationManager;
             else
-                return NSubstitute.Substitute.For<T>();
+                return Substitute.For<T>();
         }
     }
 }

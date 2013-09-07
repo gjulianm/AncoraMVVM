@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AncoraMVVM.Base
 {
@@ -9,6 +7,9 @@ namespace AncoraMVVM.Base
     {
         public static void AddRange<T>(this IList<T> list, IEnumerable<T> items)
         {
+            if (list == null)
+                throw new NullReferenceException("The List can't be null.");
+
             foreach (var item in items)
                 list.Add(item);
         }

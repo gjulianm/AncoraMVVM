@@ -5,8 +5,15 @@ using System.Windows.Input;
 
 namespace AncoraMVVM.Base
 {
+    /// <summary>
+    /// Similar to NavigateCommand, but in this case the type of the ViewModel is the target.
+    /// </summary>
+    /// <typeparam name="T">ViewModelBase subclass to navigate to.</typeparam>
     public class ViewModelNavigateCommand<T> : ICommand where T : ViewModelBase
     {
+        /// <summary>
+        /// Target to navigate to. The type is a subclass of ViewModelBase.
+        /// </summary>
         public Type Target { get; set; }
 
         public ViewModelNavigateCommand()

@@ -3,13 +3,16 @@ using AncoraMVVM.Base.IoC;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace AncoraMVVM.Base
 {
-    // Adapted from http://www.deanchalk.me.uk/post/Thread-Safe-Dispatcher-Safe-Observable-Collection-for-WPF.aspx.
-
+    /// <summary>
+    /// A thread-safe observable collection. Uses a dispatcher to run PropertyChanged event on the UI Thread.
+    /// 
+    /// Adapted from http://www.deanchalk.me.uk/post/Thread-Safe-Dispatcher-Safe-Observable-Collection-for-WPF.aspx.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class SafeObservable<T> : IList<T>, INotifyCollectionChanged
     {
         private IList<T> collection = new List<T>();

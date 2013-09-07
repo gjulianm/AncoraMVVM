@@ -83,15 +83,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Implementations\ConfigurationManager.cs" />
-    <Compile Include="Implementations\Dispatcher.cs" />
-    <Compile Include="Implementations\NavigationService.cs" />
-    <Compile Include="Implementations\NotificationService.cs" />
-    <Compile Include="Implementations\GlobalProgress.cs" />
-    <Compile Include="PhoneDependencyModule.cs" />
-    <Compile Include="PhoneViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextBoxUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace AncoraMVVM.Base
 {
-    public class ToggleButton : INotifyPropertyChanged
+    /// <summary>
+    /// A class that represents a button that can be toggled between two states.
+    /// 
+    /// Each state is set in the corresponding IconX/CommandX/TextX properties. The properties
+    ///     Icon/Command/Text change automatically when Toggled changes. If Toggled == true, the 
+    ///     properties ending with 1 are selected, else the selected ones are the ones ending with 2.
+    /// </summary>
+    public class ToggleButton : ObservableObject
     {
         public string Icon1 { get; set; }
         public string Icon2 { get; set; }
@@ -17,6 +19,12 @@ namespace AncoraMVVM.Base
         public string Text2 { get; set; }
 
         bool toggled;
+
+        /// <summary>
+        /// Returns whether the button is toggled or not.
+        /// 
+        /// If Toggled == true, the properties ending with 1 are selected, else the selected ones are the ones ending with 2.
+        /// </summary>
         public bool Toggled
         {
             get
@@ -50,16 +58,5 @@ namespace AncoraMVVM.Base
         {
             get { return Toggled ? Text1 : Text2; }
         }
-
-        #region INotifyPropertyChanged
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            var handler = PropertyChanged;
-            if (handler != null)
-                handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
     }
 }
