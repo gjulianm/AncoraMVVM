@@ -42,7 +42,7 @@ namespace AncoraMVVM.Base
             return true;
         }
 
-#pragma warning disable 67
+#pragma warning disable 67 // Disable "not used" warning. Of course it's not used, but it must be implemented.
         public event EventHandler CanExecuteChanged;
 #pragma warning restore 67
 

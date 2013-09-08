@@ -6,8 +6,8 @@ namespace AncoraMVVM.Base
     /// A class that represents a button that can be toggled between two states.
     /// 
     /// Each state is set in the corresponding IconX/CommandX/TextX properties. The properties
-    ///     Icon/Command/Text change automatically when Toggled changes. If Toggled == true, the 
-    ///     properties ending with 1 are selected, else the selected ones are the ones ending with 2.
+    /// Icon/Command/Text change automatically when Toggled changes. If Toggled == true, the 
+    /// properties ending with 1 are selected, else the selected ones are the ones ending with 2.
     /// </summary>
     public class ToggleButton : ObservableObject
     {

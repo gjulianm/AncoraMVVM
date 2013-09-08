@@ -9,11 +9,8 @@ namespace AncoraMVVM.Base
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple = false)]
     public sealed class RootNamespaceAttribute : Attribute
     {
-        // See the attribute guidelines at 
-        //  http://go.microsoft.com/fwlink/?LinkId=85236
         readonly string rootNamespace;
 
-        // This is a positional argument
         public RootNamespaceAttribute(string rootNamespace)
         {
             this.rootNamespace = rootNamespace;
