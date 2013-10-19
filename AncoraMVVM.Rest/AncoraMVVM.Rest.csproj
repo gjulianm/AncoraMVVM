@@ -1,39 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{56998798-C602-4805-8900-D180ABC5AABE}</ProjectGuid>
+    <ProjectGuid>{3DE0D56D-A0EE-4D60-8CE7-10F4A4922C64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AncoraMVVM.Base</RootNamespace>
-    <AssemblyName>AncoraMVVM.Base</AssemblyName>
+    <RootNamespace>AncoraMVVM.Rest</RootNamespace>
+    <AssemblyName>AncoraMVVM.Rest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile158</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
-    <PublishUrl>publicar\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,35 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Content Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Collections\IEnumerableExtensions.cs" />
-    <Compile Include="Collections\ObservableCollectionExtension.cs" />
-    <Compile Include="Commands\DelegateCommand.cs" />
-    <Compile Include="Interfaces\IConfigurationManager.cs" />
-    <Compile Include="IoC\Dependency.cs" />
-    <Compile Include="IoC\IDependencyModule.cs" />
-    <Compile Include="Interfaces\IDispatcher.cs" />
-    <Compile Include="Interfaces\INavigationService.cs" />
-    <Compile Include="Interfaces\INotificationService.cs" />
-    <Compile Include="Interfaces\IProgressIndicator.cs" />
-    <Compile Include="IoC\IObjectProvider.cs" />
-    <Compile Include="Commands\NavigateCommand.cs" />
-    <Compile Include="ObservableObject.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Collections\SafeObservable.cs" />
-    <Compile Include="Collections\SortedFilteredObservable.cs" />
-    <Compile Include="Commands\ToggleButton.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="ViewModelLocator\ViewModelAttribute.cs" />
-    <Compile Include="ViewModelLocator\ViewModelLocator.cs" />
-    <Compile Include="Commands\ViewModelNavigateCommand.cs" />
-    <Compile Include="ViewModelNavigator.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseService.cs" />
+    <Compile Include="HttpResponse.cs" />
+    <Compile Include="IHttpService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">
@@ -91,24 +50,24 @@
     <Reference Include="Microsoft.Threading.Tasks.Extensions">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\portable-net40+sl4+win8+wp71\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\portable-net40+sl5+win8+wp8\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.15\lib\portable-net40+sl4+win8+wp71\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.15\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.15\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime">
-      <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\portable-net40+sl5+win8+wp8\System.Runtime.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\portable-net40+sl5+win8+wp8\System.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks">
-      <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\portable-net40+sl5+win8+wp8\System.Threading.Tasks.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Bcl.1.1.3\lib\portable-net40+sl5+win8+wp8\System.Threading.Tasks.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
