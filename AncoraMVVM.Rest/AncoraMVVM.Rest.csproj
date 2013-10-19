@@ -41,6 +41,7 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="HttpResponse.cs" />
     <Compile Include="IHttpService.cs" />
+    <Compile Include="ParameterCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

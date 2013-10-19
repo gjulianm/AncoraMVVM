@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AncoraMVVM.Rest
 {
-    public class BaseService
+    public abstract class BaseService
     {
         public virtual string Authority { get; protected set; }
         public virtual string BasePath { get; protected set; }
@@ -39,7 +39,7 @@ namespace AncoraMVVM.Rest
             var request =  new HttpRequestMessage(method, Authority + BasePath + route + query);
 
             if(method == HttpMethod.Post)
-                request.Content = new StringContent(parameters.BuildPostContent());
+                request.Content = new StringContent(parameters.BuildPostContent(), Encoding.UTF8, "application/x-www-form-urlencoded");
 
             return request;
         }

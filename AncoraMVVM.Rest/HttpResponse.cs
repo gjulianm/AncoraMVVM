@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AncoraMVVM.Rest
 {
-   public class HttpResponse
+    public class HttpResponse
     {
         public HttpResponse(HttpResponseMessage response, Exception innerException, string errorMessage)
             : this(response, innerException)
@@ -33,12 +35,13 @@ namespace AncoraMVVM.Rest
         }
 
         [Conditional("DEBUG")] // Just needed for debugging. Of no purpose on production code.
-        private async void SetStringContents()
+        private void SetStringContents()
         {
             if (Response != null && Response.Content != null)
             {
-                var strContents = await Response.Content.ReadAsStringAsync();
-                StringContents = strContents;
+                var task = Response.Content.ReadAsStringAsync();
+                task.Wait();
+                StringContents = task.Result;
             }
         }
 
@@ -55,6 +58,14 @@ namespace AncoraMVVM.Rest
             }
         }
 
+        public virtual HttpStatusCode StatusCode
+        {
+            get
+            {
+                return Response.StatusCode;
+            }
+        }
+
         public static HttpResponse Default
         {
             get
@@ -62,6 +73,8 @@ namespace AncoraMVVM.Rest
                 return new HttpResponse(new HttpResponseMessage(System.Net.HttpStatusCode.OK));
             }
         }
+
+       
     }
 
     public class HttpResponse<T> : HttpResponse

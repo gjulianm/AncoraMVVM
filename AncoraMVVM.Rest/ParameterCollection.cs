@@ -45,7 +45,18 @@ namespace AncoraMVVM.Rest
 
         public string BuildPostContent()
         {
-            return BuildQueryString().TrimStart('?');
+            string query = "";
+
+            if (Count >= 1)
+            {
+                var queryParams = this.Select(pair =>
+                    string.Format("{0}={1}",
+                        pair.Key,
+                        Uri.EscapeDataString(pair.Value.ToString())));
+                query = string.Join("&", queryParams);
+            }
+
+            return query;
         }
     }
 }
