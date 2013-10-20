@@ -5,8 +5,19 @@ using System.Text;
 
 namespace AncoraMVVM.Rest
 {
+    /// <summary>
+    /// A collection of parameters of a request.
+    /// </summary>
     public class ParameterCollection : List<KeyValuePair<string, object>>
     {
+        /// <summary>
+        /// Build a parameter collection given a list of the form "key", value, "key", value, ...
+        /// 
+        /// If the collection has an odd number of items, ignores the last item.
+        /// 
+        /// Useful when receiving a variable parameter list.
+        /// </summary>
+        /// <param name="parameters">List of parameters key, value, key, value...</param>
         public ParameterCollection(object[] parameters)
             : base()
         {
@@ -18,15 +29,28 @@ namespace AncoraMVVM.Rest
             this.AddRange(queryParams);
         }
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public ParameterCollection()
         {
         }
 
+        /// <summary>
+        /// Adds a parameter to the collection. 
+        /// </summary>
+        /// <param name="key">Key</param>
+        /// <param name="value">Value</param>
         public void Add(string key, object value)
         {
             Add(new KeyValuePair<string, object>(key, value));
         }
 
+        /// <summary>
+        /// Builds the query string for the collection of parameters. Returns an 
+        ///     empty string if the collection is empty.
+        /// </summary>
+        /// <returns>Query string (i.e., "?key1=value1&key2=value2&...")</returns>
         public string BuildQueryString()
         {
             string query = "";
@@ -43,6 +67,11 @@ namespace AncoraMVVM.Rest
             return query;
         }
 
+        /// <summary>
+        /// Builds a string to send the parameters in a POST request. Returns an 
+        ///     empty string if the collection is empty.
+        /// </summary>
+        /// <returns>Post content (i.e. "key1=value1&key2=value2&...")</returns>
         public string BuildPostContent()
         {
             string query = "";

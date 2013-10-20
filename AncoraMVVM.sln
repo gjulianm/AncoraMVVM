@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone7", "Ancora
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Rest", "AncoraMVVM.Rest\AncoraMVVM.Rest.csproj", "{3DE0D56D-A0EE-4D60-8CE7-10F4A4922C64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Rest.Tests", "AncoraMVVM.Rest.Tests\AncoraMVVM.Rest.Tests.csproj", "{249219D5-F230-4E85-9DBF-237A6717867F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,14 @@ Global
 		{3DE0D56D-A0EE-4D60-8CE7-10F4A4922C64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DE0D56D-A0EE-4D60-8CE7-10F4A4922C64}.Release|ARM.ActiveCfg = Release|Any CPU
 		{3DE0D56D-A0EE-4D60-8CE7-10F4A4922C64}.Release|x86.ActiveCfg = Release|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{249219D5-F230-4E85-9DBF-237A6717867F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

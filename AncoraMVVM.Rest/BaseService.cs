@@ -17,7 +17,6 @@ namespace AncoraMVVM.Rest
         protected IHttpService Service { get; set; }
         protected ParameterCollection PersistentUrlParameters { get; private set; }
 
-
         public BaseService(IHttpService service)
         {
             Service = service;
@@ -31,14 +30,13 @@ namespace AncoraMVVM.Rest
 
             parameters.AddRange(PersistentUrlParameters);
 
-            string query = "";
+            string query = method == HttpMethod.Post ?
+                    "" :
+                    parameters.BuildQueryString();
 
-            if (method != HttpMethod.Post)
-                query = parameters.BuildQueryString();
+            var request = new HttpRequestMessage(method, Authority + (BasePath ?? "") + route + query);
 
-            var request =  new HttpRequestMessage(method, Authority + BasePath + route + query);
-
-            if(method == HttpMethod.Post)
+            if (method == HttpMethod.Post)
                 request.Content = new StringContent(parameters.BuildPostContent(), Encoding.UTF8, "application/x-www-form-urlencoded");
 
             return request;
