@@ -1,10 +1,10 @@
-﻿using System;
+﻿using AncoraMVVM.Rest;
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AncoraMVVM.Rest;
-using NUnit.Framework;
 
 namespace AncoraMVVM.Rest.Tests
 {
@@ -27,7 +27,7 @@ namespace AncoraMVVM.Rest.Tests
         [Test]
         public void Constructor_ParameterListOdd_IgnoresLastTerm()
         {
-            var pars = new object[] { "1", 1, "2", 2, "3", 3, "4"};
+            var pars = new object[] { "1", 1, "2", 2, "3", 3, "4" };
 
             var collection = new ParameterCollection(pars);
 
@@ -83,6 +83,21 @@ namespace AncoraMVVM.Rest.Tests
             var collection = new ParameterCollection(new object[] { "1", 1, "2", 2 });
 
             Assert.AreEqual("1=1&2=2", collection.BuildPostContent());
+        }
+
+        [Test]
+        public void ContainsKey_Contained_ReturnsTrue()
+        {
+            var collection = new ParameterCollection();
+            collection.Add("test", 1);
+
+            Assert.IsTrue(collection.ContainsKey("test"));
+        }
+
+        [Test]
+        public void ContainsKey_Empty_ReturnsFalse()
+        {
+            Assert.IsFalse(new ParameterCollection().ContainsKey("test"));
         }
     }
 }
