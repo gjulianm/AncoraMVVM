@@ -99,5 +99,24 @@ namespace AncoraMVVM.Rest
         {
             return this.Any(x => x.Key == key);
         }
+
+        public object this[string key]
+        {
+            get
+            {
+                if (ContainsKey(key))
+                    return this.First(x => x.Key == key).Value;
+                else
+                    return null;
+            }
+            set
+            {
+                if (ContainsKey(key))
+                    this.Remove(this.First(x => x.Key == key));
+
+                Add(key, value);
+
+            }
+        }
     }
 }
