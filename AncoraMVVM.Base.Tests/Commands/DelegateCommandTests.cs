@@ -26,7 +26,6 @@ namespace AncoraMVVM.Base.Test
             Assert.AreSame(param, receivedParam);
         }
 
-
         private class DummyNotifier : INotifyPropertyChanged
         {
             private int number;
@@ -66,7 +65,7 @@ namespace AncoraMVVM.Base.Test
             bool executed = false;
             var cmd = new DelegateCommand(async (p) =>
             {
-                await Task.Delay(500);
+                await Task.Delay(200);
                 executed = true;
             });
 
