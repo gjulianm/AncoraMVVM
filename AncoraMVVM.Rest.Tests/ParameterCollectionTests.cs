@@ -1,10 +1,4 @@
-﻿using AncoraMVVM.Rest;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
 
 namespace AncoraMVVM.Rest.Tests
 {
@@ -95,9 +89,52 @@ namespace AncoraMVVM.Rest.Tests
         }
 
         [Test]
-        public void ContainsKey_Empty_ReturnsFalse()
+        public void ContainsKey_Contained_ReturnsFalse()
         {
-            Assert.IsFalse(new ParameterCollection().ContainsKey("test"));
+            var collection = new ParameterCollection();
+            collection.Add("not", 1);
+
+            Assert.IsFalse(collection.ContainsKey("test"));
+        }
+
+        [Test]
+        public void IndexerGet_KeyDoesntExist_ReturnsNull()
+        {
+            var collection = new ParameterCollection();
+            Assert.IsNull(collection["test"]);
+        }
+
+        [Test]
+        public void IndexerGet_KeyExists_ReturnsValue()
+        {
+            var collection = new ParameterCollection();
+            var testObj = new object();
+            collection.Add("test", testObj);
+
+            Assert.AreSame(testObj, collection["test"]);
+        }
+
+        [Test]
+        public void IndexerSet_KeyDoesntExist_CreatesObject()
+        {
+            var collection = new ParameterCollection();
+
+            collection["test"] = new object();
+
+            Assert.AreEqual(1, collection.Count);
+        }
+
+        [Test]
+        public void IndexerSet_KeyExists_ReplacesObject()
+        {
+            var collection = new ParameterCollection();
+
+            collection.Add("test", new object());
+            var i = 1;
+
+            collection["test"] = i;
+
+            Assert.AreEqual(i, collection["test"]);
         }
     }
 }

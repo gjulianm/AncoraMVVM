@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace AncoraMVVM.Rest
 {
@@ -11,9 +12,9 @@ namespace AncoraMVVM.Rest
     {
         /// <summary>
         /// Build a parameter collection given a list of the form "key", value, "key", value, ...
-        ///
+        /// 
         /// If the collection has an odd number of items, ignores the last item.
-        ///
+        /// 
         /// Useful when receiving a variable parameter list.
         /// </summary>
         /// <param name="parameters">List of parameters key, value, key, value...</param>
@@ -36,7 +37,7 @@ namespace AncoraMVVM.Rest
         }
 
         /// <summary>
-        /// Adds a parameter to the collection.
+        /// Adds a parameter to the collection. 
         /// </summary>
         /// <param name="key">Key</param>
         /// <param name="value">Value</param>
@@ -46,7 +47,7 @@ namespace AncoraMVVM.Rest
         }
 
         /// <summary>
-        /// Builds the query string for the collection of parameters. Returns an
+        /// Builds the query string for the collection of parameters. Returns an 
         ///     empty string if the collection is empty.
         /// </summary>
         /// <returns>Query string (i.e., "?key1=value1&key2=value2&...")</returns>
@@ -67,7 +68,7 @@ namespace AncoraMVVM.Rest
         }
 
         /// <summary>
-        /// Builds a string to send the parameters in a POST request. Returns an
+        /// Builds a string to send the parameters in a POST request. Returns an 
         ///     empty string if the collection is empty.
         /// </summary>
         /// <returns>Post content (i.e. "key1=value1&key2=value2&...")</returns>
@@ -87,6 +88,9 @@ namespace AncoraMVVM.Rest
             return query;
         }
 
+        /// <summary>
+        /// Returns a list containing all the keys.
+        /// </summary>
         public IEnumerable<string> Keys
         {
             get
@@ -95,6 +99,9 @@ namespace AncoraMVVM.Rest
             }
         }
 
+        /// <summary>
+        /// Returns true if the given key is in the collection.
+        /// </summary>
         public bool ContainsKey(string key)
         {
             return this.Any(x => x.Key == key);
@@ -115,7 +122,6 @@ namespace AncoraMVVM.Rest
                     this.Remove(this.First(x => x.Key == key));
 
                 Add(key, value);
-
             }
         }
     }
