@@ -11,6 +11,7 @@ namespace AncoraMVVM.Base
         protected IDispatcher Dispatcher { get; private set; }
         protected IProgressIndicator Progress { get; private set; }
         protected IConfigurationManager Configuration { get; private set; }
+        protected IMessager Messager { get; private set; }
 
         public ViewModelBase()
         {
@@ -19,15 +20,19 @@ namespace AncoraMVVM.Base
             Dispatcher = Dependency.Resolve<IDispatcher>();
             Progress = Dependency.Resolve<IProgressIndicator>();
             Configuration = Dependency.Resolve<IConfigurationManager>();
+            Messager = Dependency.Resolve<IMessager>();
         }
 
-        public ViewModelBase(INavigationService navigationService, INotificationService notificationService, IDispatcher dispatcher, IProgressIndicator progress, IConfigurationManager configuration)
+        public ViewModelBase(INavigationService navigationService,
+            INotificationService notificationService, IDispatcher dispatcher, IProgressIndicator progress,
+            IConfigurationManager configuration, IMessager messager)
         {
             Navigator = navigationService;
             Notificator = notificationService;
             Dispatcher = dispatcher;
             Progress = progress;
             Configuration = configuration;
+            Messager = messager;
         }
 
         protected void RaisePropertyChanged(string propertyName)

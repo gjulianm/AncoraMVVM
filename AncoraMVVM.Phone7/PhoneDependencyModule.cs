@@ -1,4 +1,5 @@
-﻿using AncoraMVVM.Base.Interfaces;
+﻿using AncoraMVVM.Base;
+using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using AncoraMVVM.Phone.Implementations;
 
@@ -14,6 +15,7 @@ namespace AncoraMVVM.Phone
             AddDep<IProgressIndicator, GlobalProgress>(true);
             AddDep<INavigationService, NavigationService>(true);
             AddDep<IConfigurationManager, ConfigurationManager>(true);
+            AddDep<IMessager, Messager>(true);
         }
     }
 }
