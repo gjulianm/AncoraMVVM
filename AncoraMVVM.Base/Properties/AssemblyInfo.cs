@@ -26,5 +26,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyVersion("0.1.*")]
 [assembly: AssemblyFileVersion("0.1.*")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
-[assembly: AssemblyInformationalVersion("0.1.0-alpha")]
+[assembly: AssemblyInformationalVersion("0.1.1-alpha")]
 [assembly: InternalsVisibleTo("AncoraMVVM.Base.Tests")]
