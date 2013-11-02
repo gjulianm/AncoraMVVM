@@ -136,5 +136,27 @@ namespace AncoraMVVM.Rest.Tests
 
             Assert.AreEqual(i, collection["test"]);
         }
+
+        [Test]
+        public void BuildQueryString_CanManageNullValues()
+        {
+            var collection = new ParameterCollection();
+
+            collection.Add("test", 1);
+            collection.Add("test2", null);
+
+            Assert.AreEqual("?test=1&test2=", collection.BuildQueryString());
+        }
+
+        [Test]
+        public void BuildPostContent_CanManageNullValues()
+        {
+            var collection = new ParameterCollection();
+
+            collection.Add("test", 1);
+            collection.Add("test2", null);
+
+            Assert.AreEqual("test=1&test2=", collection.BuildPostContent());
+        }
     }
 }

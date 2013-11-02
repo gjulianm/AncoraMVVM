@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AncoraMVVM.Rest
 {
@@ -60,7 +59,9 @@ namespace AncoraMVVM.Rest
                 var queryParams = this.Select(pair =>
                     string.Format("{0}={1}",
                         Uri.EscapeDataString(pair.Key),
-                        Uri.EscapeDataString(pair.Value.ToString())));
+                         pair.Value != null
+                            ? Uri.EscapeDataString(pair.Value.ToString())
+                            : ""));
                 query = "?" + string.Join("&", queryParams);
             }
 
@@ -81,7 +82,9 @@ namespace AncoraMVVM.Rest
                 var queryParams = this.Select(pair =>
                     string.Format("{0}={1}",
                         pair.Key,
-                        Uri.EscapeDataString(pair.Value.ToString())));
+                        pair.Value != null
+                            ? Uri.EscapeDataString(pair.Value.ToString())
+                            : ""));
                 query = string.Join("&", queryParams);
             }
 
