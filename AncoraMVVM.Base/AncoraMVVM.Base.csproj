@@ -76,6 +76,9 @@
     <Compile Include="Collections\SafeObservable.cs" />
     <Compile Include="Collections\SortedFilteredObservable.cs" />
     <Compile Include="Commands\ToggleButton.cs" />
+    <Compile Include="Tasks\IBrowserTask.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="UrlFallbackChain.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelLocator\ViewModelAttribute.cs" />
     <Compile Include="ViewModelLocator\ViewModelLocator.cs" />

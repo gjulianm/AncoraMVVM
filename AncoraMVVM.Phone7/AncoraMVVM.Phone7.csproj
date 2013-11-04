@@ -82,6 +82,7 @@
     <Compile Include="PhoneDependencyModule.cs" />
     <Compile Include="PhoneViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\BrowserTask.cs" />
     <Compile Include="TextBoxUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
