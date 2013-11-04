@@ -83,5 +83,17 @@ namespace AncoraMVVM.Base.Tests
             var received = messager.Receive<DummyVM, List<int>>();
             Assert.AreSame(obj, received);
         }
+
+        [Test]
+        public void Receive_MessageOverwrite_ReturnsLast()
+        {
+            var messager = new Messager();
+            var obj = new List<int>();
+            messager.SendTo<DummyVM, List<int>>(new List<int> { 1, 2, 3 });
+            messager.SendTo<DummyVM, List<int>>(obj);
+
+            var received = messager.Receive<DummyVM, List<int>>();
+            Assert.AreSame(obj, received);
+        }
     }
 }

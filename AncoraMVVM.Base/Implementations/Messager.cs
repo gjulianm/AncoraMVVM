@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace AncoraMVVM.Base
 {
+    // TODO: Possible oversizing of the internal message list.
     public class Messager : IMessager
     {
         private List<Tuple<Type, object>> messages = new List<Tuple<Type, object>>();
@@ -24,8 +25,9 @@ namespace AncoraMVVM.Base
         {
             var viewModel = typeof(TViewModel);
             Tuple<Type, object> pair = null;
+
             lock (dicLock)
-                pair = messages.FirstOrDefault(x => x.Item1 == viewModel && x.Item2.GetType() == typeof(TMessage));
+                pair = messages.LastOrDefault(x => x.Item1 == viewModel && x.Item2.GetType() == typeof(TMessage));
 
             if (pair == null)
                 return null;
