@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\IEnumerableExtensions.cs" />
+    <Compile Include="Collections\LambdaComparer.cs" />
     <Compile Include="Collections\ObservableCollectionExtension.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />

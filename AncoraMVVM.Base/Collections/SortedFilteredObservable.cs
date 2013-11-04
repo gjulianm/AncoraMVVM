@@ -170,7 +170,7 @@ namespace AncoraMVVM.Base.Collections
         {
             IEnumerable<T> ordered;
 
-            if (sortOrder == Collections.SortOrder.Descending)
+            if (sortOrder == SortOrder.Descending)
                 ordered = this.OrderByDescending(x => x, Comparer);
             else
                 ordered = this.OrderBy(x => x, Comparer);
@@ -178,21 +178,21 @@ namespace AncoraMVVM.Base.Collections
             ordered = ordered.ToList();
 
             var copyOfCurrent = Items.ToList();
-            var paired = ordered.Zip(copyOfCurrent);
-
-            // Clear the list
+            var orderedWithIndexes = ordered.Select((item, index) => new { item, index });
             Items.Clear();
 
             // And now readd the items, notifying of the corresponding replacements.
             int i = 0;
-            foreach (var pair in paired)
+            foreach (var pair in orderedWithIndexes)
             {
-                Items.Add(pair.Item1);
+                Items.Add(pair.item);
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace,
-                    pair.Item1, pair.Item2, i));
+                    pair.item, copyOfCurrent[pair.index], i));
                 i++;
             }
 
+            /* Note: Why use this Select(item, index) instead of an easy Zip? Because Zip is giving some weird error, not being able
+             * to load System.Runtime on test runs. So, I'm sticking with this. */
         }
         #endregion
 

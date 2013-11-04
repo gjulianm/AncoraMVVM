@@ -1,8 +1,8 @@
-锘縰sing System.Reflection;
+using System.Reflection;
 using System.Resources;
 
-// La informaci贸n general sobre un ensamblado se controla mediante el siguiente
-// conjunto de atributos. Cambie estos atributos para modificar la informaci贸n
+// La informaci髇 general sobre un ensamblado se controla mediante el siguiente
+// conjunto de atributos. Cambie estos atributos para modificar la informaci髇
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("AncoraMVVM.Rest")]
 [assembly: AssemblyDescription("Base service and utilities to create quickly REST clients.")]
@@ -14,16 +14,16 @@ using System.Resources;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("es")]
 
-// La informaci贸n de versi贸n de un ensamblado consta de los cuatro valores siguientes:
+// La informaci髇 de versi髇 de un ensamblado consta de los cuatro valores siguientes:
 //
-//      Versi贸n principal
-//      Versi贸n secundaria
-//      N煤mero de compilaci贸n
-//      Revisi贸n
+//      Versi髇 principal
+//      Versi髇 secundaria
+//      N鷐ero de compilaci髇
+//      Revisi髇
 //
-// Puede especificar todos los valores o establecer como predeterminados los n煤meros de compilaci贸n y de revisi贸n
-// mediante el car谩cter '*', como se muestra a continuaci贸n:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.6.*")]
+// Puede especificar todos los valores o establecer como predeterminados los n鷐eros de compilaci髇 y de revisi髇
+// mediante el car醕ter '*', como se muestra a continuaci髇:
+// [assembly: AssemblyVersion("1.0.*.*")]
+[assembly: AssemblyVersion("0.1.6.0")]
 [assembly: AssemblyFileVersion("0.1.6.0")]
 [assembly: AssemblyInformationalVersion("0.1.6-alpha")]
