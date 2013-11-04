@@ -57,5 +57,10 @@ namespace AncoraMVVM.Base
         public virtual void OnNavigate()
         {
         }
+
+        protected virtual T ReceiveMessage<T>() where T : class
+        {
+            return Messager.Receive<T>(this.GetType());
+        }
     }
 }

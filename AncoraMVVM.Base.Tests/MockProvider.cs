@@ -20,11 +20,12 @@ namespace AncoraMVVM.Base.Tests
             Dispatcher.IsUIThread.Returns(true);
         }
 
-        public INotificationService NotificationService { get; private set; }
-        public IDispatcher Dispatcher { get; private set; }
-        public IProgressIndicator Progress { get; private set; }
-        public INavigationService NavigationService { get; private set; }
-        public IConfigurationManager ConfigurationManager { get; private set; }
+        public INotificationService NotificationService { get; set; }
+        public IDispatcher Dispatcher { get; set; }
+        public IProgressIndicator Progress { get; set; }
+        public INavigationService NavigationService { get; set; }
+        public IConfigurationManager ConfigurationManager { get; set; }
+        public IMessager Messager { get; set; }
 
         public T Resolve<T>() where T : class
         {
@@ -38,8 +39,11 @@ namespace AncoraMVVM.Base.Tests
                 return (T)NavigationService;
             else if (ConfigurationManager is T)
                 return (T)ConfigurationManager;
+            else if (Messager is T)
+                return (T)Messager;
             else
                 return Substitute.For<T>();
         }
+
     }
 }

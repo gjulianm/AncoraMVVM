@@ -1,4 +1,5 @@
 ﻿
+using System;
 namespace AncoraMVVM.Base.Interfaces
 {
     public interface IMessager
@@ -9,5 +10,7 @@ namespace AncoraMVVM.Base.Interfaces
         TMessage Receive<TViewModel, TMessage>()
             where TViewModel : ViewModelBase
             where TMessage : class;
+
+        TMessage Receive<TMessage>(Type viewModelType) where TMessage : class;
     }
 }

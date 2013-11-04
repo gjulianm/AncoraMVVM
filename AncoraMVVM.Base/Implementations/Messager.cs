@@ -24,10 +24,17 @@ namespace AncoraMVVM.Base
             where TMessage : class
         {
             var viewModel = typeof(TViewModel);
+
+            return Receive<TMessage>(viewModel);
+        }
+
+
+        public TMessage Receive<TMessage>(Type viewModelType) where TMessage : class
+        {
             Tuple<Type, object> pair = null;
 
             lock (dicLock)
-                pair = messages.LastOrDefault(x => x.Item1 == viewModel && x.Item2.GetType() == typeof(TMessage));
+                pair = messages.LastOrDefault(x => x.Item1 == viewModelType && x.Item2.GetType() == typeof(TMessage));
 
             if (pair == null)
                 return null;
