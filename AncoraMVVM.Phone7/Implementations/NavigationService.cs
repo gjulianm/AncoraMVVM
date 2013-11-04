@@ -54,5 +54,14 @@ namespace AncoraMVVM.Phone.Implementations
                 while (Frame.RemoveBackEntry() != null) ;
             });
         }
+
+        public override void ClearLastStackEntries(int count)
+        {
+            dispatcher.BeginInvoke(() =>
+            {
+                while (Frame.RemoveBackEntry() != null && count > 0)
+                    count--;
+            });
+        }
     }
 }

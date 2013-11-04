@@ -11,5 +11,6 @@ namespace AncoraMVVM.Base.Interfaces
         void GoBack();
         bool CanGoBack { get; }
         void ClearNavigationStack();
+        void ClearLastStackEntries(int count);
     }
 }
