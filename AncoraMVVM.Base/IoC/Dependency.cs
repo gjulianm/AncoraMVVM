@@ -44,7 +44,7 @@ namespace AncoraMVVM.Base.IoC
             else if (typeMap.TryGetValue(typeof(T), out type))
                 return (T)Activator.CreateInstance(type);
             else
-                throw new KeyNotFoundException("Couldn't resolve for type " + typeof(T).FullName);
+                throw new KeyNotFoundException("AncoraMVVM Dependency: Couldn't resolve for type " + typeof(T).FullName);
         }
 
         public static void RegisterModule(IDependencyModule module)

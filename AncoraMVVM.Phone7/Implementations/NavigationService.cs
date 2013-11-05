@@ -18,6 +18,12 @@ namespace AncoraMVVM.Phone.Implementations
             }
         }
 
+        private void AssertFrameNotNull()
+        {
+            if (Frame == null)
+                throw new InvalidOperationException("AncoraMVVM: the current RootVisual is null or not a PhoneApplicationFrame. Can't execute navigation operations, abort.");
+        }
+
         public NavigationService()
             : base()
         {
@@ -31,12 +37,12 @@ namespace AncoraMVVM.Phone.Implementations
 
         public override void Navigate(Uri page)
         {
-            dispatcher.BeginInvoke(() => Frame.Navigate(page));
+            dispatcher.InvokeIfRequired(() => { AssertFrameNotNull(); Frame.Navigate(page); });
         }
 
         public override void GoBack()
         {
-            dispatcher.BeginInvoke(Frame.GoBack);
+            dispatcher.InvokeIfRequired(() => { AssertFrameNotNull(); Frame.GoBack(); });
         }
 
         public override bool CanGoBack
@@ -49,16 +55,18 @@ namespace AncoraMVVM.Phone.Implementations
 
         public override void ClearNavigationStack()
         {
-            dispatcher.BeginInvoke(() =>
+            dispatcher.InvokeIfRequired(() =>
             {
+                AssertFrameNotNull();
                 while (Frame.RemoveBackEntry() != null) ;
             });
         }
 
         public override void ClearLastStackEntries(int count)
         {
-            dispatcher.BeginInvoke(() =>
+            dispatcher.InvokeIfRequired(() =>
             {
+                AssertFrameNotNull();
                 while (Frame.RemoveBackEntry() != null && count > 0)
                     count--;
             });
