@@ -23,8 +23,8 @@ using System.Runtime.CompilerServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("0.1.6.*")]
-[assembly: AssemblyFileVersion("0.1.6.0")]
+[assembly: AssemblyVersion("0.1.7.*")]
+[assembly: AssemblyFileVersion("0.1.7.0")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
-[assembly: AssemblyInformationalVersion("0.1.6-alpha")]
+[assembly: AssemblyInformationalVersion("0.1.7-alpha")]
 [assembly: InternalsVisibleTo("AncoraMVVM.Base.Tests")]
