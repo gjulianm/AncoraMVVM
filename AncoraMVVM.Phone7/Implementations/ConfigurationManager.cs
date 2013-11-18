@@ -1,6 +1,7 @@
 ﻿using AncoraMVVM.Base.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.IsolatedStorage;
 
 namespace AncoraMVVM.Phone.Implementations
@@ -44,8 +45,9 @@ namespace AncoraMVVM.Phone.Implementations
                     }
                 }
             }
-            catch (InvalidCastException)
+            catch (InvalidCastException ex)
             {
+                Debug.WriteLine("AncoraMVVM: Invalid cast on config for key {0}: {1}", key.Key, ex);
                 item = default(T);
                 lock (storageLock)
                 {
@@ -53,7 +55,7 @@ namespace AncoraMVVM.Phone.Implementations
                     config.Save();
                 }
             }
-            
+
             cachedObjects[key.Key] = item;
 
             return item;
