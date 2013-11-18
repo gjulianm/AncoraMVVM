@@ -67,7 +67,7 @@ namespace AncoraMVVM.Phone.Implementations
             dispatcher.InvokeIfRequired(() =>
             {
                 AssertFrameNotNull();
-                while (Frame.RemoveBackEntry() != null && count > 0)
+                while (count > 0 && Frame.RemoveBackEntry() != null)
                     count--;
             });
         }
