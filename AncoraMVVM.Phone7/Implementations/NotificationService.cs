@@ -1,5 +1,4 @@
-﻿using AncoraMVVM.Base;
-using AncoraMVVM.Base.Interfaces;
+﻿using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using System.Windows;
 
@@ -32,7 +31,12 @@ namespace AncoraMVVM.Phone.Implementations
 
         public void ShowProgressIndicatorMessage(string message)
         {
-            
+            // TODO
+        }
+
+        public bool Prompt(string message)
+        {
+            return MessageBox.Show(message, "Question", MessageBoxButton.OKCancel) == MessageBoxResult.OK;
         }
     }
 }

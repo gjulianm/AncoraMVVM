@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace AncoraMVVM.Base.Interfaces
 {
     public interface INotificationService
@@ -11,5 +7,6 @@ namespace AncoraMVVM.Base.Interfaces
         void ShowWarning(string message);
         void ShowError(string message);
         void ShowProgressIndicatorMessage(string message);
+        bool Prompt(string message);
     }
 }
