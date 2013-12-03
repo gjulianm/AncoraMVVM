@@ -34,12 +34,16 @@ namespace AncoraMVVM.Base
             Tuple<Type, object> pair = null;
 
             lock (dicLock)
+            {
                 pair = messages.LastOrDefault(x => x.Item1 == viewModelType && x.Item2.GetType() == typeof(TMessage));
 
-            if (pair == null)
-                return null;
-            else
-                return (TMessage)pair.Item2;
+                if (pair == null)
+                    return null;
+
+                messages.Remove(pair);
+            }
+
+            return (TMessage)pair.Item2;
         }
     }
 }
