@@ -11,10 +11,16 @@ namespace AncoraMVVM.Phone
 {
     public class PhoneViewModelLocator : ViewModelLocator
     {
+        private PhoneApplicationFrame RootFrame { get; set; }
+
         private void Initialize(PhoneApplicationFrame rootFrame)
         {
             rootFrame.Navigated += OnRootFrameNavigated;
+            rootFrame.Navigating += OnRootFrameNavigating;
+
+            RootFrame = rootFrame;
         }
+
 
         public void InitializeAndFindPages(PhoneApplicationFrame rootFrame)
         {
@@ -54,7 +60,6 @@ namespace AncoraMVVM.Phone
                         {
                             viewModel.OnLoad();
                             page.Loaded -= handler; // OnLoad is called just once.
-                            page.NavigationService.Navigating += (sn, ean) => viewModel.OnNavigating(ean);
                         };
 
                         page.Loaded += handler;
@@ -68,6 +73,23 @@ namespace AncoraMVVM.Phone
                 if (viewModel != null)
                     viewModel.OnNavigate();
 
+            }
+        }
+
+
+        protected virtual void OnRootFrameNavigating(object sender, NavigatingCancelEventArgs e)
+        {
+            if (RootFrame != null)
+            {
+                var page = RootFrame.Content as PhoneApplicationPage;
+
+                if (page != null)
+                {
+                    var viewModel = page.DataContext as ViewModelBase;
+
+                    if (viewModel != null)
+                        viewModel.OnNavigating(e);
+                }
             }
         }
 
