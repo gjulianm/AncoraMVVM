@@ -54,6 +54,7 @@ namespace AncoraMVVM.Phone
                         {
                             viewModel.OnLoad();
                             page.Loaded -= handler; // OnLoad is called just once.
+                            page.NavigationService.Navigating += (sn, ean) => viewModel.OnNavigating(ean);
                         };
 
                         page.Loaded += handler;

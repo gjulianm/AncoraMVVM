@@ -62,5 +62,10 @@ namespace AncoraMVVM.Base
         {
             return Messager.Receive<T>(this.GetType());
         }
+
+        public virtual void OnNavigating(CancelEventArgs e)
+        {
+
+        }
     }
 }
