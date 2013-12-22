@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+using System.IO;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +44,32 @@ namespace AncoraMVVM.Rest
         protected HttpRequestMessage CreateRequest(string route, HttpMethod method, params object[] parameters)
         {
             return CreateRequest(route, method, new ParameterCollection(parameters));
+        }
+
+        protected HttpRequestMessage CreateFileRequest(string route, Stream file, string fileName, string fileParamName, params object[] parameters)
+        {
+            return CreateFileRequest(route, new List<HttpFileUpload> { new HttpFileUpload(file, fileName, fileParamName) }, new ParameterCollection(parameters));
+        }
+
+        protected HttpRequestMessage CreateFileRequest(string route, IEnumerable<HttpFileUpload> files, params object[] parameters)
+        {
+            return CreateFileRequest(route, files, new ParameterCollection(parameters));
+        }
+
+        protected virtual HttpRequestMessage CreateFileRequest(string route, IEnumerable<HttpFileUpload> files, ParameterCollection parameters)
+        {
+
+            var content = new MultipartFormDataContent();
+            content.Add(new StringContent(parameters.BuildPostContent(), Encoding.UTF8, "application/x-www-form-urlencoded"));
+
+            foreach (var file in files)
+                content.Add(new StreamContent(file.FileStream), file.Parameter, file.Filename);
+
+            var req = new HttpRequestMessage(HttpMethod.Post, Authority + (BasePath ?? "") + route);
+
+            req.Content = content;
+
+            return req;
         }
 
         protected virtual async Task<HttpResponse> CreateAndExecute(string route, HttpMethod method, params object[] parameters)

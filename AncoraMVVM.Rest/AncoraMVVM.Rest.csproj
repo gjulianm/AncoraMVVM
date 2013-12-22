@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="HttpFileUpload.cs" />
     <Compile Include="HttpResponse.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="IHttpService.cs" />
