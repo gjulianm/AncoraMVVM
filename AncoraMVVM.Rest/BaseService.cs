@@ -63,7 +63,12 @@ namespace AncoraMVVM.Rest
             content.Add(new StringContent(parameters.BuildPostContent(), Encoding.UTF8, "application/x-www-form-urlencoded"));
 
             foreach (var file in files)
-                content.Add(new StreamContent(file.FileStream), file.Parameter, file.Filename);
+            {
+                byte[] buffer = new byte[file.FileStream.Length];
+                file.FileStream.Read(buffer, 0, (int)file.FileStream.Length);
+                var base64 = Encoding.UTF8.GetBytes(Convert.ToBase64String(buffer, 0, buffer.Length));
+                content.Add(new ByteArrayContent(base64), file.Parameter, file.Filename);
+            }
 
             var req = new HttpRequestMessage(HttpMethod.Post, Authority + (BasePath ?? "") + route);
 
