@@ -24,6 +24,6 @@ using System.Resources;
 // Puede especificar todos los valores o establecer como predeterminados los números de compilación y de revisión
 // mediante el carácter '*', como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*.*")]
-[assembly: AssemblyVersion("0.1.11.0")]
-[assembly: AssemblyFileVersion("0.1.11.0")]
-[assembly: AssemblyInformationalVersion("0.1.11-alpha")]
+[assembly: AssemblyVersion("0.1.12.0")]
+[assembly: AssemblyFileVersion("0.1.12.0")]
+[assembly: AssemblyInformationalVersion("0.1.12-alpha")]

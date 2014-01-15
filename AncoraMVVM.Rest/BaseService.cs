@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,18 +58,31 @@ namespace AncoraMVVM.Rest
             return CreateFileRequest(route, files, new ParameterCollection(parameters));
         }
 
+        private byte[] ReadStreamContents(Stream stream)
+        {
+            int length = (int)stream.Length;
+            byte[] contents = new byte[length];
+
+            if (stream.CanSeek)
+                stream.Seek(0, SeekOrigin.Begin);
+
+            stream.Read(contents, 0, length);
+
+            return contents;
+        }
+
         protected virtual HttpRequestMessage CreateFileRequest(string route, IEnumerable<HttpFileUpload> files, ParameterCollection parameters)
         {
-
             var content = new MultipartFormDataContent();
-            content.Add(new StringContent(parameters.BuildPostContent(), Encoding.UTF8, "application/x-www-form-urlencoded"));
+
+            foreach (var parameter in parameters)
+                content.Add(new StringContent(parameter.Value.ToString()), parameter.Key);
 
             foreach (var file in files)
             {
-                byte[] buffer = new byte[file.FileStream.Length];
-                file.FileStream.Read(buffer, 0, (int)file.FileStream.Length);
-                var base64 = Encoding.UTF8.GetBytes(Convert.ToBase64String(buffer, 0, buffer.Length));
-                content.Add(new ByteArrayContent(base64), file.Parameter, file.Filename);
+                var fileContent = new ByteArrayContent(ReadStreamContents(file.FileStream));
+                fileContent.Headers.ContentType = GetContentType(file.Filename);
+                content.Add(fileContent, "fileselect", file.Filename);
             }
 
             var req = new HttpRequestMessage(HttpMethod.Post, Authority + (BasePath ?? "") + route);
@@ -75,6 +90,23 @@ namespace AncoraMVVM.Rest
             req.Content = content;
 
             return req;
+        }
+
+        private MediaTypeHeaderValue GetContentType(string filename)
+        {
+            var extension = filename.Split('.').Last();
+
+            //TODO: Complete.
+            switch (extension)
+            {
+                case "png":
+                    return MediaTypeHeaderValue.Parse("image/png");
+                case "jpg":
+                    return MediaTypeHeaderValue.Parse("image/jpeg");
+                default:
+                    return MediaTypeHeaderValue.Parse("text/plain");
+
+            }
         }
 
         protected virtual async Task<HttpResponse> CreateAndExecute(string route, HttpMethod method, params object[] parameters)
