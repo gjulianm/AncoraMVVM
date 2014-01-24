@@ -82,7 +82,7 @@ namespace AncoraMVVM.Rest
             {
                 var fileContent = new ByteArrayContent(ReadStreamContents(file.FileStream));
                 fileContent.Headers.ContentType = GetContentType(file.Filename);
-                content.Add(fileContent, "fileselect", file.Filename);
+                content.Add(fileContent, file.Parameter, file.Filename);
             }
 
             var req = new HttpRequestMessage(HttpMethod.Post, Authority + (BasePath ?? "") + route);
