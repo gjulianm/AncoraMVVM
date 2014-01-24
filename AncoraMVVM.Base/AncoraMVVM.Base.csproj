@@ -61,6 +61,9 @@
     <Compile Include="Collections\LambdaComparer.cs" />
     <Compile Include="Collections\ObservableCollectionExtension.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Diagnostics\AncoraLogger.cs" />
+    <Compile Include="Diagnostics\LogEntry.cs" />
+    <Compile Include="Diagnostics\LogLevel.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="Interfaces\IMessager.cs" />
     <Compile Include="IoC\Dependency.cs" />
