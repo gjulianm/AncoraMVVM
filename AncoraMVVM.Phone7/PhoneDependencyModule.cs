@@ -18,7 +18,6 @@ namespace AncoraMVVM.Phone
             AddDep<INavigationService, NavigationService>(true);
             AddDep<IConfigurationManager, ConfigurationManager>(true);
             AddDep<IMessager, Messager>(true);
-            AddDep<IBrowserTask, BrowserTask>();
         }
     }
 }

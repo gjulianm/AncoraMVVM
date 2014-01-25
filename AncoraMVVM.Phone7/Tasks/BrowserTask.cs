@@ -1,9 +1,8 @@
-﻿using AncoraMVVM.Base.Tasks;
+﻿using AncoraMVVM.Base.Interfaces;
+using AncoraMVVM.Base.IoC;
+using AncoraMVVM.Base.Tasks;
 using Microsoft.Phone.Tasks;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AncoraMVVM.Phone7.Tasks
 {
@@ -15,7 +14,7 @@ namespace AncoraMVVM.Phone7.Tasks
         {
             var task = new WebBrowserTask();
             task.Uri = Uri;
-            task.Show();
+            Dependency.Resolve<IDispatcher>().InvokeIfRequired(task.Show);
         }
     }
 }

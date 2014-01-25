@@ -80,8 +80,10 @@
     <Compile Include="Collections\SafeObservable.cs" />
     <Compile Include="Collections\SortedFilteredObservable.cs" />
     <Compile Include="Commands\ToggleButton.cs" />
+    <Compile Include="Tasks\IAppStoreTask.cs" />
     <Compile Include="Tasks\IBrowserTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Tasks\TaskFactory.cs" />
     <Compile Include="UrlFallbackChain.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelLocator\ViewModelAttribute.cs" />
