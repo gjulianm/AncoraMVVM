@@ -1,7 +1,10 @@
-﻿
-using System.IO;
+﻿using System.IO;
+
 namespace AncoraMVVM.Rest
 {
+    /// <summary>
+    /// Container for a file upload.
+    /// </summary>
     public class HttpFileUpload
     {
         public HttpFileUpload(Stream fileStream, string paramName, string fileName)
