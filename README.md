@@ -17,6 +17,7 @@ I didn't searched to see if anyone had these things already, I suppose I'm not t
 * A SortedFilteredObservable collection (I could have come up with a longer name) which supports live sorting and filtering, everything with notifications. A nice, portable subsitute of CollectionViewSource.
 * A ConfigurationManager. I'm not very convinced of the approach, but it's useful to ensure type safety, it comes with a caché to avoid calling always to IsolatedStorage, and you don't have to mess up with key strings. 
 * A global ProgressIndicator. [Not mine, though](http://www.jeff.wilcox.name/2011/07/creating-a-global-progressindicator-experience-using-the-windows-phone-7-1-sdk-beta-2/)
+* The [AncoraMVVM.Rest](https://github.com/gjulianm/AncoraMVVM/wiki/AncoraMVVM.Rest) base client.
 
 ## Things to be done
 
