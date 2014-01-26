@@ -28,6 +28,18 @@ namespace AncoraMVVM.Base.Interfaces
             var config = Dependency.Resolve<IConfigurationManager>();
             config.Set(this, item);
         }
+
+        public T Value
+        {
+            get
+            {
+                return Get();
+            }
+            set
+            {
+                Set(value);
+            }
+        }
     }
 
     /// <summary>
