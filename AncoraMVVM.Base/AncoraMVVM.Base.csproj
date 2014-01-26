@@ -64,6 +64,10 @@
     <Compile Include="Diagnostics\AncoraLogger.cs" />
     <Compile Include="Diagnostics\LogEntry.cs" />
     <Compile Include="Diagnostics\LogLevel.cs" />
+    <Compile Include="Files\BaseFileManager.cs" />
+    <Compile Include="Files\Enums.cs" />
+    <Compile Include="Files\IFile.cs" />
+    <Compile Include="Files\IFileManager.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="Interfaces\IMessager.cs" />
     <Compile Include="IoC\Dependency.cs" />

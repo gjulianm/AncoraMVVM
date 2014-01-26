@@ -1,9 +1,9 @@
 ﻿using AncoraMVVM.Base;
+using AncoraMVVM.Base.Files;
 using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
-using AncoraMVVM.Base.Tasks;
 using AncoraMVVM.Phone.Implementations;
-using AncoraMVVM.Phone7.Tasks;
+using AncoraMVVM.Phone7.Implementations.Files;
 
 namespace AncoraMVVM.Phone
 {
@@ -18,6 +18,7 @@ namespace AncoraMVVM.Phone
             AddDep<INavigationService, NavigationService>(true);
             AddDep<IConfigurationManager, ConfigurationManager>(true);
             AddDep<IMessager, Messager>(true);
+            AddDep<IFileManager, PhoneFileManager>(true);
         }
     }
 }

@@ -76,6 +76,9 @@
   <ItemGroup>
     <Compile Include="Implementations\ConfigurationManager.cs" />
     <Compile Include="Implementations\Dispatcher.cs" />
+    <Compile Include="Implementations\Files\EnumConverters.cs" />
+    <Compile Include="Implementations\Files\PhoneFile.cs" />
+    <Compile Include="Implementations\Files\PhoneFileManager.cs" />
     <Compile Include="Implementations\GlobalProgress.cs" />
     <Compile Include="Implementations\NavigationService.cs" />
     <Compile Include="Implementations\NotificationService.cs" />
