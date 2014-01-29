@@ -70,7 +70,7 @@ namespace AncoraMVVM.Phone7.BindableAppBar
                 "IconUri1",
                 typeof(Uri),
                 typeof(BindableAppBarToggleButton),
-                new PropertyMetadata(null, OnIconUri1Changed));
+                new PropertyMetadata(OnIconUri1Changed));
 
         /// <summary>
         /// Gets or sets the IconUri1 property. This dependency property 
@@ -521,7 +521,7 @@ namespace AncoraMVVM.Phone7.BindableAppBar
                 "Toggled",
                 typeof(bool),
                 typeof(BindableAppBarToggleButton),
-                new PropertyMetadata(null, OnToggledChanged));
+                new PropertyMetadata(false, OnToggledChanged));
 
         /// <summary>
         /// Gets or sets the Toggled property. This dependency property 
@@ -571,6 +571,7 @@ namespace AncoraMVVM.Phone7.BindableAppBar
                     Command = Command2;
                     CommandParameter = CommandParameter2;
                 }
+                else
                 {
                     IconUri = IconUri1;
                     Text = Text1;
