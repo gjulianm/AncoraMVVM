@@ -75,10 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindableAppBar\Bindable.cs" />
+    <Compile Include="BindableAppBar\BindableAppBarHyperlinkButton.cs" />
     <Compile Include="BindableAppBar\BindableAppBarToggleButton.cs" />
     <Compile Include="BindableAppBar\BindableAppBar.cs" />
     <Compile Include="BindableAppBar\BindableAppBarButton.cs" />
     <Compile Include="BindableAppBar\BindableAppBarMenuItem.cs" />
+    <Compile Include="BindableAppBar\BindableAppBarToggleMenuItem.cs" />
+    <Compile Include="BindableAppBar\BindableAppBarHyperlinkMenuItem.cs" />
     <Compile Include="Implementations\ConfigurationManager.cs" />
     <Compile Include="Implementations\Dispatcher.cs" />
     <Compile Include="Implementations\Files\EnumConverters.cs" />
