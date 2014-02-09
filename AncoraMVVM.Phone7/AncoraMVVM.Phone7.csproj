@@ -82,6 +82,7 @@
     <Compile Include="BindableAppBar\BindableAppBarMenuItem.cs" />
     <Compile Include="BindableAppBar\BindableAppBarToggleMenuItem.cs" />
     <Compile Include="BindableAppBar\BindableAppBarHyperlinkMenuItem.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Implementations\ConfigurationManager.cs" />
     <Compile Include="Implementations\Dispatcher.cs" />
     <Compile Include="Implementations\Files\EnumConverters.cs" />
