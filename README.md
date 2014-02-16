@@ -26,3 +26,35 @@ I have a lot of pending things on this, but these are the most important:
 * Expand test coverage. Specially on the Windows Phone implementations of the interfaces: they don't have unit tests.
 * Documentation, documentation, documentation. The code is (I think) pretty self-explanatory, but documenting the public methods would be useful. 
 * Examples and instructions: there're some configuration details that can't be inferred from the code, these need to be explained.
+
+#How to's
+
+## Windows Phone
+
+To include AncoraMVVM in your Windows Phone app, you'll need to include some code in your `App.xaml.cs` file, specifically in the constructor:
+
+			// Initialize the ViewModel locator (automatic setup of viewmodels in each page)
+ 			var locator = new PhoneViewModelLocator();
+            locator.InitializeAndFindPages(RootFrame);
+	
+			// Setup the global progress indicator.
+            ((GlobalProgress)Dependency.Resolve<IProgressIndicator>()).Initialize(RootFrame);
+			
+			// Setup navigation with viewmodels.
+            var navigator = Dependency.Resolve<INavigationService>() as ViewModelNavigationService;
+
+            if (navigator == null)
+                Debug.WriteLine("The INavigationService configured is not a ViewModelNavigationService (or there isn't a INavigationService registered).");
+            else
+                navigator.Initialize();
+
+### ViewModelNavigationService
+
+For the ViewModelNavigator to work correctly, you should specify the root namespace your app is using. This is because of how the navigator handles navigation requests.
+
+On initializaton, ViewModelNavigationService finds every type with the `ViewModel` attribute. Let's suppose you attribute your type `Myapp.Windows.Phone.Views.Settings` with the attribute. The inferred URI for the page will be `/Views/Settings`. Basically, we remove the root namespace (`MyApp.Windows.Phone`) and we suppose that each child namespace represents a directory. 
+
+So, this leads us to the two requirements to use `ViewModelNavigationService`:
+
+* In `AssemblyInfo.cs`, set the attribute `[assembly: RootNamespace("myrootnamespace")]`.
+* For each page, namespace must match folder structure. If your page is inside a `Views` folder, it should be inside of a `Views` namespace, and viceversa. 
