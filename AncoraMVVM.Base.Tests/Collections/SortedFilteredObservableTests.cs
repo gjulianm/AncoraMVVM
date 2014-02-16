@@ -1,4 +1,5 @@
 ﻿using AncoraMVVM.Base.Collections;
+using AncoraMVVM.Base.IoC;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,18 @@ namespace AncoraMVVM.Base.Tests.Collections
     [TestFixture]
     public class SortedFilteredObservableTests
     {
+        [TestFixtureSetUp]
+        public static void Setup()
+        {
+            Dependency.Provider = new MockProvider();
+        }
+
+        [TestFixtureTearDown]
+        public static void Teardown()
+        {
+            Dependency.Provider = null;
+        }
+
         private SortedFilteredObservable<int> CreateRange(int items = 10)
         {
             var list = new SortedFilteredObservable<int>();

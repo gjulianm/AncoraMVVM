@@ -1,5 +1,6 @@
 ﻿using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace AncoraMVVM.Base
     /// Adapted from http://www.deanchalk.me.uk/post/Thread-Safe-Dispatcher-Safe-Observable-Collection-for-WPF.aspx.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SafeObservable<T> : IList<T>, INotifyCollectionChanged
+    public class SafeObservable<T> : IList<T>, IList, INotifyCollectionChanged
     {
-        private IList<T> collection = new List<T>();
+        protected List<T> collection = new List<T>();
         private IDispatcher dispatcher;
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
@@ -38,7 +39,7 @@ namespace AncoraMVVM.Base
         }
 
         #region Event raisers.
-        void RaiseCollectionReset()
+        protected void RaiseCollectionReset()
         {
             var copy = CollectionChanged;
             if (copy != null)
@@ -50,7 +51,7 @@ namespace AncoraMVVM.Base
             }
         }
 
-        void RaiseCollectionAdd(T item, int index)
+        protected void RaiseCollectionAdd(T item, int index)
         {
             var copy = CollectionChanged;
             if (copy != null)
@@ -62,7 +63,7 @@ namespace AncoraMVVM.Base
             }
         }
 
-        void RaiseCollectionRemove(T item, int index)
+        protected void RaiseCollectionRemove(T item, int index)
         {
             var copy = CollectionChanged;
             if (copy != null)
@@ -74,7 +75,7 @@ namespace AncoraMVVM.Base
             }
         }
 
-        void RaiseCollectionReplace(T value, T old, int index)
+        protected void RaiseCollectionReplace(T value, T old, int index)
         {
             var copy = CollectionChanged;
             if (copy != null)
@@ -142,7 +143,7 @@ namespace AncoraMVVM.Base
 
         public bool IsReadOnly
         {
-            get { return collection.IsReadOnly; }
+            get { return false; }
         }
 
         public bool Remove(T item)
@@ -234,5 +235,68 @@ namespace AncoraMVVM.Base
             }
 
         }
+
+        #region IList members
+        // I hate Ilist.
+        int IList.Add(object value)
+        {
+            Add((T)value);
+            return collection.Count - 1;
+        }
+
+        bool IList.Contains(object value)
+        {
+            return Contains((T)value);
+        }
+
+        int IList.IndexOf(object value)
+        {
+            return IndexOf((T)value);
+        }
+
+        void IList.Insert(int index, object value)
+        {
+            Insert(index, (T)value);
+        }
+
+        bool IList.IsFixedSize
+        {
+            get { return false; }
+        }
+
+        void IList.Remove(object value)
+        {
+            Remove((T)value);
+        }
+
+        object IList.this[int index]
+        {
+            get
+            {
+                return this[index];
+            }
+            set
+            {
+                this[index] = (T)value;
+            }
+        }
+
+        void ICollection.CopyTo(System.Array array, int index)
+        {
+            T[] typeArray = new T[array.Length];
+            CopyTo(typeArray, index);
+            typeArray.CopyTo(array, index);
+        }
+
+        bool ICollection.IsSynchronized
+        {
+            get { return false; }
+        }
+
+        object ICollection.SyncRoot
+        {
+            get { return null; }
+        }
+        #endregion
     }
 }

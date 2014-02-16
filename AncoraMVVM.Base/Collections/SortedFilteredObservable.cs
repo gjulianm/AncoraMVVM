@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Linq;
 
 namespace AncoraMVVM.Base.Collections
@@ -12,7 +10,7 @@ namespace AncoraMVVM.Base.Collections
     /// A observable collection that supports filtering and 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SortedFilteredObservable<T> : ObservableCollection<T>
+    public class SortedFilteredObservable<T> : SafeObservable<T>
     {
         IComparer<T> comparer;
         public IComparer<T> Comparer
@@ -163,7 +161,7 @@ namespace AncoraMVVM.Base.Collections
             while (i < Count && DoesAGoBeforeB(item, base[i]))
                 i++;
 
-            base.InsertItem(i, item);
+            Insert(i, item);
         }
 
         private void ReorderList()
@@ -177,17 +175,16 @@ namespace AncoraMVVM.Base.Collections
 
             ordered = ordered.ToList();
 
-            var copyOfCurrent = Items.ToList();
+            var copyOfCurrent = this.ToList();
             var orderedWithIndexes = ordered.Select((item, index) => new { item, index });
-            Items.Clear();
+            Clear();
 
             // And now readd the items, notifying of the corresponding replacements.
             int i = 0;
             foreach (var pair in orderedWithIndexes)
             {
-                Items.Add(pair.item);
-                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace,
-                    pair.item, copyOfCurrent[pair.index], i));
+                collection.Add(pair.item);
+                RaiseCollectionReplace(pair.item, copyOfCurrent[pair.index], i);
                 i++;
             }
 
@@ -196,7 +193,7 @@ namespace AncoraMVVM.Base.Collections
         }
         #endregion
 
-        protected override void InsertItem(int index, T item)
+        public override void Add(T item)
         {
             if (Matches(item))
                 discardedItems.Add(item);
