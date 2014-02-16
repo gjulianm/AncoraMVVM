@@ -345,9 +345,6 @@ namespace AncoraMVVM.Phone7.BindableAppBar
         /// </param>
         public void Attach(ApplicationBar parentApplicationBar, int i)
         {
-            Debug.Assert(
-                this.IconUri != null, "IconUri property cannot be null.");
-
             if (this.applicationBarIconButton != null)
             {
                 return;
