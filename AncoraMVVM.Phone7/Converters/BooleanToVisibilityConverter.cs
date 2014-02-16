@@ -8,8 +8,12 @@ namespace AncoraMVVM.Phone7.Converters
         public object Convert(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             var trueIsVisible = parameter as string != "Collapsed";
+            var val = value is bool && (bool)value;
 
-            if (value is bool && (bool)value && trueIsVisible)
+            if (!trueIsVisible)
+                val = !val;
+
+            if (val)
                 return Visibility.Visible;
             else
                 return Visibility.Collapsed;

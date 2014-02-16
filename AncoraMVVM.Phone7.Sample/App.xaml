@@ -3,11 +3,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:ac="clr-namespace:AncoraMVVM.Phone7.Converters;assembly=AncoraMVVM.Phone7"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
 
     <!--Recursos de la aplicación-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:AncoraMVVM.Phone7.Sample" x:Key="LocalizedStrings"/>
+        <ac:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

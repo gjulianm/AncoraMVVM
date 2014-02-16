@@ -96,8 +96,12 @@
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="ViewModels\AppBarModel.cs" />
+    <Compile Include="ViewModels\ConverterModel.cs" />
     <Compile Include="Views\AppBar.xaml.cs">
       <DependentUpon>AppBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converter.xaml.cs">
+      <DependentUpon>Converter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -116,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Views\AppBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Converter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
