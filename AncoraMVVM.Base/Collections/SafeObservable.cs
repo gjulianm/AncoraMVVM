@@ -101,10 +101,12 @@ namespace AncoraMVVM.Base
             RaiseCollectionAdd(item, index);
         }
 
-        public void BulkAdd(IEnumerable<T> items)
+        public void AddRange(IEnumerable<T> items)
         {
-            foreach (var item in items)
-                Add(item);
+            lock (sync)
+                collection.AddRange(items);
+
+            RaiseCollectionReset();
         }
 
 

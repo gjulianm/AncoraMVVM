@@ -5,7 +5,7 @@ namespace AncoraMVVM.Base
 {
     public static class IListExtension
     {
-        public static void AddRange<T>(this IList<T> list, IEnumerable<T> items)
+        public static void AddListRange<T>(this IList<T> list, IEnumerable<T> items)
         {
             if (list == null)
                 throw new NullReferenceException("The List can't be null.");
