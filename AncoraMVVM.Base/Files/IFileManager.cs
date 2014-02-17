@@ -5,7 +5,7 @@ namespace AncoraMVVM.Base.Files
 {
     public interface IFileManager
     {
-        IFile OpenFile(string path, FilePermissions permissions, FileOpenMode mode);
+        File OpenFile(string path, FilePermissions permissions, FileOpenMode mode);
         void DeleteFile(string path);
         IEnumerable<string> GetFilesIn(string path);
         void CreateFolder(string folderPath);

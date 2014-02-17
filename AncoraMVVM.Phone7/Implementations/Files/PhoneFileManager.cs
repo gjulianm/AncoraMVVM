@@ -5,7 +5,7 @@ namespace AncoraMVVM.Phone7.Implementations.Files
 {
     public class PhoneFileManager : BaseFileManager
     {
-        public override IFile OpenFile(string path, FilePermissions permissions, FileOpenMode mode)
+        public override File OpenFile(string path, FilePermissions permissions, FileOpenMode mode)
         {
             using (var isolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
             {

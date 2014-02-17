@@ -66,7 +66,7 @@
     <Compile Include="Diagnostics\LogLevel.cs" />
     <Compile Include="Files\BaseFileManager.cs" />
     <Compile Include="Files\Enums.cs" />
-    <Compile Include="Files\IFile.cs" />
+    <Compile Include="Files\File.cs" />
     <Compile Include="Files\IFileManager.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="Interfaces\IMessager.cs" />
