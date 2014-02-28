@@ -21,7 +21,6 @@ namespace AncoraMVVM.Phone
             RootFrame = rootFrame;
         }
 
-
         public void InitializeAndFindPages(PhoneApplicationFrame rootFrame)
         {
             Initialize(rootFrame);
@@ -35,6 +34,19 @@ namespace AncoraMVVM.Phone
 
             foreach (var pair in pageToViewModelMap)
                 PageToViewModelMap.Add(pair.Key, pair.Value);
+        }
+
+        private void SetOnLoadHandler(PhoneApplicationPage page, ViewModelBase viewModel)
+        {
+            RoutedEventHandler handler = null;
+
+            handler = (s, ea) =>
+            {
+                viewModel.OnLoad();
+                page.Loaded -= handler; // OnLoad is called just once.
+            };
+
+            page.Loaded += handler;
         }
 
         protected virtual void OnRootFrameNavigated(object sender, NavigationEventArgs e)
@@ -54,15 +66,7 @@ namespace AncoraMVVM.Phone
                         viewModel = GetViewModelForType(pageType);
                         page.DataContext = viewModel;
 
-                        RoutedEventHandler handler = null;
-
-                        handler = (s, ea) =>
-                        {
-                            viewModel.OnLoad();
-                            page.Loaded -= handler; // OnLoad is called just once.
-                        };
-
-                        page.Loaded += handler;
+                        SetOnLoadHandler(page, viewModel);
                     }
                 }
                 else
