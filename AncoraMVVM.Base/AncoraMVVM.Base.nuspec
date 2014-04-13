@@ -1,15 +1,15 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>AncoraMVVM.Base</id>
+    <version>0.1.27-alpha</version>
+    <title>AncoraMVVM.Base</title>
+    <authors>Guillermo Julian</authors>
+    <owners>Guillermo Julian</owners>
     <licenseUrl>http://www.mozilla.org/MPL/</licenseUrl>
     <projectUrl>https://github.com/gjulianm/AncoraMVVM</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Base library for MVVM in Windows, Windows Phone.</description>
     <releaseNotes></releaseNotes>
     <copyright>Mozilla Public License 2013</copyright>
     <tags>AncoraMVVM MVVM</tags>
