@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace AncoraMVVM.Phone.Implementations
 {
-    public class Dispatcher : IDispatcher
+    public class Dispatcher : BaseDispatcher
     {
         private System.Windows.Threading.Dispatcher PhoneDispatcher
         {
@@ -20,25 +20,17 @@ namespace AncoraMVVM.Phone.Implementations
                 throw new InvalidOperationException("AncoraMVVM: Deployment.Current.Dispatcher is null, can't make dispatcher calls.");
         }
 
-        public void BeginInvoke(Action action)
+        public override void BeginInvoke(Action action)
         {
             PhoneDispatcher.BeginInvoke(action);
         }
 
-        public bool IsUIThread
+        public override bool IsUIThread
         {
             get
             {
                 return PhoneDispatcher.CheckAccess();
             }
-        }
-
-        public void InvokeIfRequired(Action action)
-        {
-            if (IsUIThread)
-                action();
-            else
-                BeginInvoke(action);
         }
     }
 }

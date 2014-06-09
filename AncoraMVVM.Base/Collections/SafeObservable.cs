@@ -1,4 +1,5 @@
-﻿using AncoraMVVM.Base.Interfaces;
+﻿using AncoraMVVM.Base.Diagnostics;
+using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +31,15 @@ namespace AncoraMVVM.Base
 
         public SafeObservable()
         {
-            dispatcher = Dependency.Resolve<IDispatcher>();
+            try
+            {
+                dispatcher = Dependency.Resolve<IDispatcher>();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                AncoraLogger.Instance.LogException("Couldn't get a Dispatcher for this instance of SafeObservable. Thread safety not guaranteed.", ex);
+                dispatcher = new DummyDispatcher();
+            }
         }
 
         public SafeObservable(IDispatcher dispatcher)
