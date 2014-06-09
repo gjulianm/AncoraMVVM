@@ -178,6 +178,7 @@ namespace AncoraMVVM.Phone7.BindableAppBar
                 {
                     this.IsEnabled =
                         newCommand1.CanExecute(this.CommandParameter1);
+                    this.Command = newCommand1;
                 }
 
                 newCommand1.CanExecuteChanged +=
@@ -431,6 +432,7 @@ namespace AncoraMVVM.Phone7.BindableAppBar
                 {
                     this.IsEnabled =
                         newCommand2.CanExecute(this.CommandParameter2);
+                    this.Command = newCommand2;
                 }
 
                 newCommand2.CanExecuteChanged +=
