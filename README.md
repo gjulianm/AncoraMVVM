@@ -18,6 +18,7 @@ I didn't searched to see if anyone had these things already, I suppose I'm not t
 * A ConfigurationManager. I'm not very convinced of the approach, but it's useful to ensure type safety, it comes with a caché to avoid calling always to IsolatedStorage, and you don't have to mess up with key strings. 
 * A global ProgressIndicator. [Not mine, though](http://www.jeff.wilcox.name/2011/07/creating-a-global-progressindicator-experience-using-the-windows-phone-7-1-sdk-beta-2/)
 * The [AncoraMVVM.Rest](https://github.com/gjulianm/AncoraMVVM/wiki/AncoraMVVM.Rest) base client.
+* A generator to create automatically settings pages in your app.
 
 ## Things to be done
 
@@ -27,7 +28,7 @@ I have a lot of pending things on this, but these are the most important:
 * Documentation, documentation, documentation. The code is (I think) pretty self-explanatory, but documenting the public methods would be useful. 
 * Examples and instructions: there're some configuration details that can't be inferred from the code, these need to be explained.
 
-#How to's
+# How to's
 
 ## Windows Phone
 
@@ -58,3 +59,4 @@ So, this leads us to the two requirements to use `ViewModelNavigationService`:
 
 * In `AssemblyInfo.cs`, set the attribute `[assembly: RootNamespace("myrootnamespace")]`.
 * For each page, namespace must match folder structure. If your page is inside a `Views` folder, it should be inside of a `Views` namespace, and viceversa. 
+
