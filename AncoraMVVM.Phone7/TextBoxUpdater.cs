@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 
-namespace AncoraMVVM.Phone
+namespace AncoraMVVM.Phone7
 {
     public static class TextBoxUpdater
     {

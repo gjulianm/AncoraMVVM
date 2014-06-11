@@ -1,8 +1,8 @@
 ﻿using AncoraMVVM.Base;
 using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
-using AncoraMVVM.Phone;
-using AncoraMVVM.Phone.Implementations;
+using AncoraMVVM.Phone7;
+using AncoraMVVM.Phone7.Implementations;
 using AncoraMVVM.Phone7.Sample.Resources;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;

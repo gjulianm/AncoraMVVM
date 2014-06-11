@@ -1,0 +1,99 @@
+﻿<!--
+      *********    NO MODIFIQUE ESTE ARCHIVO     *********
+      Este archivo se regenera mediante una herramienta de diseño.
+       Si realiza cambios en este archivo, puede causar errores.
+-->
+<SampleData:SettingsSampleData xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SettingsSampleData" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  <SampleData:SettingsSampleData.Settings>
+    <SampleData:SettingsItem Name="Class aenean" Value="True">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Aliquam nam" Value="False">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Cras sed" Value="True">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Maecenas integer" Value="False">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Praesent accumsan" Value="True">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Bibendum" Value="False">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Quisque dis" Value="True">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Curae" Value="False">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Duis" Value="True">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+    <SampleData:SettingsItem Name="Dictumst" Value="False">
+      <SampleData:SettingsItem.Options>
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+        <SampleData:OptionsItem />
+      </SampleData:SettingsItem.Options>
+    </SampleData:SettingsItem>
+  </SampleData:SettingsSampleData.Settings>
+</SampleData:SettingsSampleData>

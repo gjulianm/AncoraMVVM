@@ -8,9 +8,13 @@
 
     <!--Recursos de la aplicación-->
     <Application.Resources>
+		<ResourceDictionary>
+			<!-- <ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Resources/Generic.xaml" />
+			</ResourceDictionary.MergedDictionaries> --> <!-- For design in Blend -->
         <local:LocalizedStrings xmlns:local="clr-namespace:AncoraMVVM.Phone7.Sample" x:Key="LocalizedStrings"/>
         <ac:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
+		</ResourceDictionary>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

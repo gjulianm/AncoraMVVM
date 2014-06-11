@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace AncoraMVVM.Phone
+namespace AncoraMVVM.Phone7
 {
     public class PhoneViewModelLocator : ViewModelLocator
     {

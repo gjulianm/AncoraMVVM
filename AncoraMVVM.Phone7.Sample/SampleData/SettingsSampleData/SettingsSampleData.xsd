@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+      *********    NO MODIFIQUE ESTE ARCHIVO     *********
+      Este archivo se regenera mediante una herramienta de diseño.
+       Si realiza cambios en este archivo, puede causar errores.
+-->
+<xs:schema xmlns:blend="http://schemas.microsoft.com/expression/blend/2008" xmlns:tns="Expression.Blend.SampleData.SettingsSampleData" targetNamespace="Expression.Blend.SampleData.SettingsSampleData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SettingsSampleData" type="tns:SettingsSampleData" />
+  <xs:complexType name="SettingsSampleData">
+    <xs:sequence>
+      <xs:element name="Settings" type="tns:Settings" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Settings">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="SettingsItem" type="tns:SettingsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SettingsItem">
+    <xs:sequence>
+      <xs:element name="Options" type="tns:Options" />
+    </xs:sequence>
+    <xs:attribute blend:FormatParameters="2,8" name="Name" type="xs:string" />
+    <xs:attribute name="Value" type="xs:boolean" />
+  </xs:complexType>
+  <xs:complexType name="Options">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="OptionsItem" type="tns:OptionsItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OptionsItem" />
+</xs:schema>

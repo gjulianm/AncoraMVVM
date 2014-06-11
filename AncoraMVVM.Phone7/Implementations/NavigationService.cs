@@ -5,7 +5,7 @@ using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
 
-namespace AncoraMVVM.Phone.Implementations
+namespace AncoraMVVM.Phone7.Implementations
 {
     public class NavigationService : ViewModelNavigationService
     {

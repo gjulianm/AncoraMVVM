@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.IsolatedStorage;
 
-namespace AncoraMVVM.Phone.Implementations
+namespace AncoraMVVM.Phone7.Implementations
 {
     internal static class TypeExtensions
     {

@@ -47,6 +47,7 @@ namespace AncoraMVVM.Phone7.Sample
 
             Samples.Add(SampleItem.Create<AppBarModel>("app bar"));
             Samples.Add(SampleItem.Create<ConverterModel>("converter"));
+            Samples.Add(SampleItem.Create<AutoSettingsModel>("automatic settings"));
         }
 
         public override void OnNavigate()
