@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace AncoraMVVM.Base.Interfaces
 {
@@ -10,5 +6,10 @@ namespace AncoraMVVM.Base.Interfaces
     {
         bool IsLoading { get; set; }
         string Text { get; set; }
+
+        /// <summary>
+        /// Clear the indicator: empty the text and force stop the animation.
+        /// </summary>
+        void ClearIndicator();
     }
 }

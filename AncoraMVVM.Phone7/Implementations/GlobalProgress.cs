@@ -54,6 +54,9 @@ namespace AncoraMVVM.Phone7.Implementations
                 else
                     --loadingCount;
 
+                if (loadingCount < 0)
+                    loadingCount = 0;
+
                 dispatcher.InvokeIfRequired(NotifyValueChanged);
             }
         }
@@ -92,6 +95,14 @@ namespace AncoraMVVM.Phone7.Implementations
             {
                 dispatcher.InvokeIfRequired(() => indicator.Text = value);
             }
+        }
+
+
+        public void ClearIndicator()
+        {
+            loadingCount = 0;
+            Text = string.Empty;
+            NotifyValueChanged();
         }
     }
 }
