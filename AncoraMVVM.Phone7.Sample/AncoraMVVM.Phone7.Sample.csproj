@@ -101,6 +101,7 @@
     <Compile Include="ViewModels\AppBarModel.cs" />
     <Compile Include="ViewModels\ConverterModel.cs" />
     <Compile Include="ViewModels\AutoSettingsModel.cs" />
+    <Compile Include="ViewModels\ProgressModel.cs" />
     <Compile Include="Views\AppBar.xaml.cs">
       <DependentUpon>AppBar.xaml</DependentUpon>
     </Compile>
@@ -120,18 +121,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Progress.xaml.cs">
+      <DependentUpon>Progress.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="..\AncoraMVVM.Phone7\Themes\Generic.xaml">
-      <Link>Resources\Generic.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
     <DesignTimeOnly Include="SampleData\SettingsSampleData\SettingsSampleData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -149,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Progress.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
