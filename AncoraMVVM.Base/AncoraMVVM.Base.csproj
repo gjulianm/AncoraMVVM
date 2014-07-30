@@ -69,7 +69,7 @@
     <Compile Include="Files\Enums.cs" />
     <Compile Include="Files\File.cs" />
     <Compile Include="Files\IFileManager.cs" />
-    <Compile Include="Interfaces\AncoraExtensions.cs" />
+    <Compile Include="AncoraExtensions.cs" />
     <Compile Include="Interfaces\IConfigurationManager.cs" />
     <Compile Include="Interfaces\IMessager.cs" />
     <Compile Include="IoC\Dependency.cs" />
