@@ -7,9 +7,9 @@ namespace AncoraMVVM.Base.Collections
     public enum SortOrder { Ascending, Descending }
 
     /// <summary>
-    /// A observable collection that supports filtering and 
+    /// A observable collection that supports filtering and sorting.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Type of the elements</typeparam>
     public class SortedFilteredObservable<T> : SafeObservable<T>
     {
         IComparer<T> comparer;
@@ -40,16 +40,17 @@ namespace AncoraMVVM.Base.Collections
             }
         }
 
-        Predicate<T> filter;
+        Predicate<T> discarder;
+
         /// <summary>
         /// The filter used. If Filter(object) returns true, object is discarded.
         /// </summary>
-        public Predicate<T> Filter
+        public Predicate<T> Discarder
         {
-            get { return filter; }
+            get { return discarder; }
             set
             {
-                filter = value;
+                discarder = value;
 
                 ReevaluateInList();
                 ReevaluateDiscarded();
@@ -132,10 +133,10 @@ namespace AncoraMVVM.Base.Collections
 
         internal bool Matches(T item)
         {
-            if (filter == null)
+            if (discarder == null)
                 return false;
 
-            return filter.Invoke(item);
+            return discarder.Invoke(item);
         }
         #endregion
 

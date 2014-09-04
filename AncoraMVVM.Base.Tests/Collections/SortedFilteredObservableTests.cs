@@ -45,7 +45,7 @@ namespace AncoraMVVM.Base.Tests.Collections
         public void Filter_Null_NoRemovedElements()
         {
             var list = CreateRange(10);
-            list.Filter = null;
+            list.Discarder = null;
 
             Assert.AreEqual(10, list.Count);
         }
@@ -54,7 +54,7 @@ namespace AncoraMVVM.Base.Tests.Collections
         public void Filter_Set_IsApplied()
         {
             var list = CreateRange(10);
-            list.Filter = x => x % 2 == 0;
+            list.Discarder = x => x % 2 == 0;
 
             foreach (var item in list)
                 Assert.IsTrue(item % 2 != 0);
@@ -64,7 +64,7 @@ namespace AncoraMVVM.Base.Tests.Collections
         public void Add_ItemMatchingFilter_NotAddedToList()
         {
             var list = CreateRange(10);
-            list.Filter = x => x % 2 == 0;
+            list.Discarder = x => x % 2 == 0;
 
             list.Add(12);
 
@@ -75,7 +75,7 @@ namespace AncoraMVVM.Base.Tests.Collections
         public void Add_ItemNotMatchingFilter_AddedToList()
         {
             var list = CreateRange(10);
-            list.Filter = x => x % 2 == 0;
+            list.Discarder = x => x % 2 == 0;
 
             list.Add(11);
 
@@ -86,11 +86,11 @@ namespace AncoraMVVM.Base.Tests.Collections
         public void Filter_Changes_IsReapplied()
         {
             var list = CreateRange(10);
-            list.Filter = x => x < 8;
+            list.Discarder = x => x < 8;
 
             Assert.AreEqual(2, list.Count);
 
-            list.Filter = x => x > 2;
+            list.Discarder = x => x > 2;
 
             foreach (var item in list)
                 Assert.IsTrue(item <= 2);
