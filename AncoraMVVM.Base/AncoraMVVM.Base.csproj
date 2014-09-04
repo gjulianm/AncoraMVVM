@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSettings\Settings.cs" />
+    <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\IEnumerableExtensions.cs" />
     <Compile Include="Collections\LambdaComparer.cs" />
     <Compile Include="Collections\ObservableCollectionExtension.cs" />
