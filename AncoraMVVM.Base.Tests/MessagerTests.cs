@@ -95,5 +95,27 @@ namespace AncoraMVVM.Base.Tests
             var received = messager.Receive<DummyVM, List<int>>();
             Assert.AreSame(obj, received);
         }
+
+        [Test]
+        public void Receive_TypesAreDerived_ReturnsNull()
+        {
+            var messager = new Messager();
+            var obj = new List<int>();
+            messager.SendTo<DummyVM, List<int>>(obj);
+
+            var received = messager.Receive<DummyVM, IEnumerable<int>>();
+            Assert.IsNull(received);
+        }
+
+        [Test]
+        public void Receive_SameBaseTypeSentAndRequested_ReturnsObject()
+        {
+            var messager = new Messager();
+            var obj = new List<int>();
+            messager.SendTo<DummyVM, IEnumerable<int>>(obj);
+
+            var received = messager.Receive<DummyVM, IEnumerable<int>>();
+            Assert.AreSame(obj, received);
+        }
     }
 }

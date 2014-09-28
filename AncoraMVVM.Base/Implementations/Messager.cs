@@ -8,7 +8,10 @@ namespace AncoraMVVM.Base
     // TODO: Possible oversizing of the internal message list.
     public class Messager : IMessager
     {
-        private List<Tuple<Type, object>> messages = new List<Tuple<Type, object>>();
+        // Tuple.Item1 => target ViewModel type
+        // Tuple.Item2 => Object to transfer
+        // Tuple.Item3 => object type (useful when you want base types, but send concrete implementations.
+        private List<Tuple<Type, object, Type>> messages = new List<Tuple<Type, object, Type>>();
         private object dicLock = new object();
 
         public void SendTo<TViewModel, TMessage>(TMessage msg)
@@ -16,7 +19,7 @@ namespace AncoraMVVM.Base
             where TMessage : class
         {
             lock (dicLock)
-                messages.Add(Tuple.Create(typeof(TViewModel), (object)msg));
+                messages.Add(Tuple.Create(typeof(TViewModel), (object)msg, typeof(TMessage)));
         }
 
         public TMessage Receive<TViewModel, TMessage>()
@@ -31,11 +34,11 @@ namespace AncoraMVVM.Base
 
         public TMessage Receive<TMessage>(Type viewModelType) where TMessage : class
         {
-            Tuple<Type, object> pair = null;
+            Tuple<Type, object, Type> pair = null;
 
             lock (dicLock)
             {
-                pair = messages.LastOrDefault(x => x.Item1 == viewModelType && x.Item2.GetType() == typeof(TMessage));
+                pair = messages.LastOrDefault(x => x.Item1 == viewModelType && x.Item3 == typeof(TMessage));
 
                 if (pair == null)
                     return null;
