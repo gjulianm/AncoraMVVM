@@ -90,6 +90,7 @@
     <Compile Include="BindableAppBar\BindableAppBarToggleMenuItem.cs" />
     <Compile Include="BindableAppBar\BindableAppBarHyperlinkMenuItem.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\PhoneEnumToStringConverter.cs" />
     <Compile Include="DataTemplateSelector.cs" />
     <Compile Include="Implementations\ConfigurationManager.cs" />
     <Compile Include="Implementations\Dispatcher.cs" />

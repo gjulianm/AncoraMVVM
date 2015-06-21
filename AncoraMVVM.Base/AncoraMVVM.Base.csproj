@@ -63,6 +63,8 @@
     <Compile Include="Collections\LambdaComparer.cs" />
     <Compile Include="Collections\ObservableCollectionExtension.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Converters\BaseEnumToStringConverter.cs" />
+    <Compile Include="Converters\LocalizedDescriptionAttribute.cs" />
     <Compile Include="Diagnostics\AncoraLogger.cs" />
     <Compile Include="Diagnostics\LogEntry.cs" />
     <Compile Include="Diagnostics\LogLevel.cs" />
