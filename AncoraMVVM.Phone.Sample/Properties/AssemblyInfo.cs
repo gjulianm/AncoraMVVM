@@ -1,7 +1,7 @@
-﻿using AncoraMVVM.Base;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
+using AncoraMVVM.Base;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie los valores de estos atributos para modificar la información
@@ -35,4 +35,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: NeutralResourcesLanguageAttribute("es-ES")]
-[assembly: RootNamespace("AncoraMVVM.Phone7.Sample")]
+[assembly: RootNamespace("AncoraMVVM.Phone.Sample")]
