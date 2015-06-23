@@ -1,4 +1,5 @@
-﻿using System.Windows.Data;
+﻿using System.Windows;
+using System.Windows.Data;
 using AncoraMVVM.Base.Converters;
 
 namespace AncoraMVVM.Phone.Converters
@@ -7,7 +8,7 @@ namespace AncoraMVVM.Phone.Converters
     {
         protected override string GetLocalizedString(string id)
         {
-            throw new System.NotImplementedException();
+            return Application.Current.Resources[id] as string;
         }
     }
 }
