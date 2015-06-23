@@ -1,5 +1,6 @@
 ﻿using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
+// ReSharper disable DoNotCallOverridableMethodsInConstructor
 namespace AncoraMVVM.Testing
 {
     public class BaseMockProvider : IObjectProvider
