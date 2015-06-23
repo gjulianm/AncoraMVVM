@@ -1,21 +1,21 @@
-﻿using AncoraMVVM.Base.Collections;
+﻿using System;
+using System.Collections.Generic;
+using AncoraMVVM.Base.Collections;
 using AncoraMVVM.Base.IoC;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 
 namespace AncoraMVVM.Base.Tests.Collections
 {
     [TestFixture]
     public class SortedFilteredObservableTests
     {
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public static void Setup()
         {
             Dependency.Provider = new MockProvider();
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public static void Teardown()
         {
             Dependency.Provider = null;
