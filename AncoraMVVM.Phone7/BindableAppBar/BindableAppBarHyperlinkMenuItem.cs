@@ -1,11 +1,11 @@
-﻿
+﻿using System;
+using System.Windows;
 using AncoraMVVM.Base;
 using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using Microsoft.Phone.Tasks;
-using System;
-using System.Windows;
-namespace AncoraMVVM.Phone7.BindableAppBar
+
+namespace AncoraMVVM.Phone.BindableAppBar
 {
     public class BindableAppBarHyperlinkMenuItem : BindableAppBarMenuItem
     {

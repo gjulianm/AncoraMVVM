@@ -1,10 +1,10 @@
-﻿using AncoraMVVM.Base.Interfaces;
+﻿using System;
+using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using AncoraMVVM.Base.Tasks;
 using Microsoft.Phone.Tasks;
-using System;
 
-namespace AncoraMVVM.Phone7.Tasks
+namespace AncoraMVVM.Phone.Tasks
 {
     public class BrowserTask : IBrowserTask
     {

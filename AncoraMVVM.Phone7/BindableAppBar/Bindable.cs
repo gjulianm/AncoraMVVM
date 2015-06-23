@@ -1,10 +1,10 @@
-using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
+using Microsoft.Phone.Controls;
 
 // Source: https://bindableapplicationb.codeplex.com/
 
-namespace AncoraMVVM.Phone7.BindableAppBar
+namespace AncoraMVVM.Phone.BindableAppBar
 {
     /// <summary>
     /// Provides an attached dependency property

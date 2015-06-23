@@ -1,12 +1,12 @@
-﻿using AncoraMVVM.Base;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using AncoraMVVM.Base;
 using AncoraMVVM.Base.AutoSettings;
 using AncoraMVVM.Base.Interfaces;
 using PropertyChanged;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
-namespace AncoraMVVM.Phone7.Sample.ViewModels
+namespace AncoraMVVM.Phone.Sample.ViewModels
 {
     public enum ChoicesEnum
     {

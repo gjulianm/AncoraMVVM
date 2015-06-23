@@ -1,7 +1,7 @@
-﻿using AncoraMVVM.Base.AutoSettings;
-using System.Windows;
+﻿using System.Windows;
+using AncoraMVVM.Base.AutoSettings;
 
-namespace AncoraMVVM.Phone7.AutoSettings
+namespace AncoraMVVM.Phone.AutoSettings
 {
     public class SettingsTemplateSelector : DataTemplateSelector
     {

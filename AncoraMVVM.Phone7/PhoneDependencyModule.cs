@@ -2,10 +2,10 @@
 using AncoraMVVM.Base.Files;
 using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
-using AncoraMVVM.Phone7.Implementations;
-using AncoraMVVM.Phone7.Implementations.Files;
+using AncoraMVVM.Phone.Implementations;
+using AncoraMVVM.Phone.Implementations.Files;
 
-namespace AncoraMVVM.Phone7
+namespace AncoraMVVM.Phone
 {
     public class PhoneDependencyModule : DependencyModule
     {

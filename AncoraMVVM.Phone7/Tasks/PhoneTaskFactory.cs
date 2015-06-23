@@ -1,7 +1,7 @@
-﻿using AncoraMVVM.Base.Tasks;
-using System;
+﻿using System;
+using AncoraMVVM.Base.Tasks;
 
-namespace AncoraMVVM.Phone7.Tasks
+namespace AncoraMVVM.Phone.Tasks
 {
     public class PhoneTaskFactory : ITaskFactory
     {

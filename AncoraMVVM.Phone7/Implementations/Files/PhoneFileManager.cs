@@ -1,7 +1,7 @@
-﻿using AncoraMVVM.Base.Files;
-using System.IO.IsolatedStorage;
+﻿using System.IO.IsolatedStorage;
+using AncoraMVVM.Base.Files;
 
-namespace AncoraMVVM.Phone7.Implementations.Files
+namespace AncoraMVVM.Phone.Implementations.Files
 {
     public class PhoneFileManager : BaseFileManager
     {

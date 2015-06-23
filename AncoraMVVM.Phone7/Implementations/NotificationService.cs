@@ -1,8 +1,8 @@
-﻿using AncoraMVVM.Base.Interfaces;
+﻿using System.Windows;
+using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
-using System.Windows;
 
-namespace AncoraMVVM.Phone7.Implementations
+namespace AncoraMVVM.Phone.Implementations
 {
     public class NotificationService : INotificationService
     {

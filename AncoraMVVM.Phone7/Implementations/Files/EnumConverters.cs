@@ -1,7 +1,7 @@
-﻿
+﻿using System.IO;
 using AncoraMVVM.Base.Files;
-using System.IO;
-namespace AncoraMVVM.Phone7.Implementations.Files
+
+namespace AncoraMVVM.Phone.Implementations.Files
 {
     internal static class EnumConverters
     {

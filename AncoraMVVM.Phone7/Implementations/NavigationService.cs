@@ -1,11 +1,11 @@
-﻿using AncoraMVVM.Base;
+﻿using System;
+using System.Windows;
+using AncoraMVVM.Base;
 using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using Microsoft.Phone.Controls;
-using System;
-using System.Windows;
 
-namespace AncoraMVVM.Phone7.Implementations
+namespace AncoraMVVM.Phone.Implementations
 {
     public class NavigationService : ViewModelNavigationService
     {

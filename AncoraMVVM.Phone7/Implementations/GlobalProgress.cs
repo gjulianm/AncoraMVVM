@@ -1,12 +1,12 @@
-﻿using AncoraMVVM.Base.Interfaces;
+﻿using System.ComponentModel;
+using System.Windows;
+using System.Windows.Navigation;
+using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Navigation;
 
-namespace AncoraMVVM.Phone7.Implementations
+namespace AncoraMVVM.Phone.Implementations
 {
     // Source: http://www.jeff.wilcox.name/2011/07/creating-a-global-progressindicator-experience-using-the-windows-phone-7-1-sdk-beta-2/
     public class GlobalProgress : IProgressIndicator

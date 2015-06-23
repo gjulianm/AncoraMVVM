@@ -1,11 +1,12 @@
-﻿using Microsoft.Phone.Shell;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Phone.Shell;
+
 // Source: https://bindableapplicationb.codeplex.com/
 
-namespace AncoraMVVM.Phone7.BindableAppBar
+namespace AncoraMVVM.Phone.BindableAppBar
 {
     /// <summary>
     /// A wrapper for an <see cref="ApplicationBarIconButton"/> object

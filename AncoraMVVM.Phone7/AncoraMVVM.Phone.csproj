@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AncoraMVVM.Phone7</RootNamespace>
-    <AssemblyName>AncoraMVVM.Phone7</AssemblyName>
+    <RootNamespace>AncoraMVVM.Phone</RootNamespace>
+    <AssemblyName>AncoraMVVM.Phone</AssemblyName>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <SilverlightVersion>
     </SilverlightVersion>

@@ -1,10 +1,10 @@
-﻿using AncoraMVVM.Base.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.IsolatedStorage;
+using AncoraMVVM.Base.Interfaces;
 
-namespace AncoraMVVM.Phone7.Implementations
+namespace AncoraMVVM.Phone.Implementations
 {
     internal static class TypeExtensions
     {

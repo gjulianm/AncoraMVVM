@@ -1,9 +1,9 @@
-﻿using AncoraMVVM.Base;
-using AncoraMVVM.Phone7.BindableAppBar;
+﻿using System;
+using AncoraMVVM.Base;
+using AncoraMVVM.Phone.BindableAppBar;
 using PropertyChanged;
-using System;
 
-namespace AncoraMVVM.Phone7.Sample.ViewModels
+namespace AncoraMVVM.Phone.Sample.ViewModels
 {
     [ImplementPropertyChanged]
     public class AppBarModel : ViewModelBase

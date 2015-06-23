@@ -5,18 +5,16 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:as="clr-namespace:AncoraMVVM.Phone7.AutoSettings;assembly=AncoraMVVM.Phone7"
-    xmlns:IoC="clr-namespace:AncoraMVVM.Base.IoC;assembly=AncoraMVVM.Base"
-    xmlns:ViewModels="clr-namespace:AncoraMVVM.Phone7.Sample.ViewModels"
-    xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SettingsSampleData"
-    x:Class="AncoraMVVM.Phone7.Sample.Views.AutoSettings"
+    xmlns:as="clr-namespace:AncoraMVVM.Phone.AutoSettings;assembly=AncoraMVVM.Phone"
+    xmlns:settingsSampleData="clr-namespace:AncoraMVVM.Phone.Sample.SampleData.SettingsSampleData"
+    x:Class="AncoraMVVM.Phone.Sample.Views.AutoSettings"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 	
 	<phone:PhoneApplicationPage.Resources>
 		<ResourceDictionary>
-			<SampleData:SettingsSampleData x:Key="SettingsSampleData" d:IsDataSource="True"/>
+			<settingsSampleData:SettingsSampleData x:Key="SettingsSampleData" d:IsDataSource="True"/>
 			<DataTemplate x:Key="DesignTimeTemplate">
 				<StackPanel>
 					<!-- For design in Blend --> 

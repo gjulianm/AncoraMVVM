@@ -1,8 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
-namespace AncoraMVVM.Phone7.BindableAppBar
+
+namespace AncoraMVVM.Phone.BindableAppBar
 {
     public class BindableAppBarToggleMenuItem : BindableAppBarMenuItem
     {

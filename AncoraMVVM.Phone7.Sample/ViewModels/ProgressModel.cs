@@ -1,7 +1,7 @@
 ﻿using AncoraMVVM.Base;
 using PropertyChanged;
 
-namespace AncoraMVVM.Phone7.Sample.ViewModels
+namespace AncoraMVVM.Phone.Sample.ViewModels
 {
     [ImplementPropertyChanged]
     public class ProgressModel : ViewModelBase

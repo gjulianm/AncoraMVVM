@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace AncoraMVVM.Phone7
+namespace AncoraMVVM.Phone
 {
     // Thanks to http://www.codeproject.com/Articles/92439/Silverlight-DataTemplateSelector
     public abstract class DataTemplateSelector : ContentControl

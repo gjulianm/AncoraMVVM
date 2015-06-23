@@ -1,7 +1,7 @@
-﻿using AncoraMVVM.Base.Converters;
-using System.Windows.Data;
+﻿using System.Windows.Data;
+using AncoraMVVM.Base.Converters;
 
-namespace AncoraMVVM.Phone7.Converters
+namespace AncoraMVVM.Phone.Converters
 {
     public class PhoneEnumToStringConverter : BaseEnumToStringConverter, IValueConverter
     {

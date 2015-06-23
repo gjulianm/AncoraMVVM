@@ -1,8 +1,8 @@
-﻿using AncoraMVVM.Base.Interfaces;
-using System;
+﻿using System;
 using System.Windows;
+using AncoraMVVM.Base.Interfaces;
 
-namespace AncoraMVVM.Phone7.Implementations
+namespace AncoraMVVM.Phone.Implementations
 {
     public class Dispatcher : BaseDispatcher
     {

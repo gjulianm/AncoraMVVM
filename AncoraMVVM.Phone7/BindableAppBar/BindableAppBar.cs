@@ -1,5 +1,3 @@
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,11 +8,13 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 
 // Source: https://bindableapplicationb.codeplex.com/
 
 
-namespace AncoraMVVM.Phone7.BindableAppBar
+namespace AncoraMVVM.Phone.BindableAppBar
 {
     /// <summary>
     /// Serves as a bindable control wrapping the native ApplicationBar

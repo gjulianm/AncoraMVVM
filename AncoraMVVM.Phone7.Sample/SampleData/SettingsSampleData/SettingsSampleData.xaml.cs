@@ -1,10 +1,9 @@
 ﻿//      *********    NO MODIFIQUE ESTE ARCHIVO     *********
 //      Este archivo se regenera mediante una herramienta de diseño.
 //       Si realiza cambios en este archivo, puede causar errores.
-namespace Expression.Blend.SampleData.SettingsSampleData
-{
-	using System; 
 
+namespace AncoraMVVM.Phone.Sample.SampleData.SettingsSampleData
+{
 // Para reducir de forma significativa la superficie de los datos de ejemplo en la aplicación de producción, puede establecer
 // la constante de compilación condicional DISABLE_SAMPLE_DATA y deshabilitar los datos de ejemplo en tiempo de ejecución.
 #if DISABLE_SAMPLE_DATA

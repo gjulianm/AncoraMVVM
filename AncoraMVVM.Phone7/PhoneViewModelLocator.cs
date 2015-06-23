@@ -1,13 +1,13 @@
-﻿using AncoraMVVM.Base;
-using AncoraMVVM.Base.ViewModelLocator;
-using Microsoft.Phone.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Navigation;
+using AncoraMVVM.Base;
+using AncoraMVVM.Base.ViewModelLocator;
+using Microsoft.Phone.Controls;
 
-namespace AncoraMVVM.Phone7
+namespace AncoraMVVM.Phone
 {
     public class PhoneViewModelLocator : ViewModelLocator
     {

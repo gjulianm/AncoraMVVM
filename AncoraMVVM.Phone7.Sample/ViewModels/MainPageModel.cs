@@ -1,11 +1,10 @@
-﻿using AncoraMVVM.Base;
+﻿using System;
+using AncoraMVVM.Base;
 using AncoraMVVM.Base.Interfaces;
 using AncoraMVVM.Base.IoC;
-using AncoraMVVM.Phone7.Sample.ViewModels;
 using PropertyChanged;
-using System;
 
-namespace AncoraMVVM.Phone7.Sample
+namespace AncoraMVVM.Phone.Sample.ViewModels
 {
 
     public class SampleItem

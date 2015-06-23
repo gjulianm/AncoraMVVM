@@ -1,7 +1,8 @@
 ﻿using AncoraMVVM.Base.ViewModelLocator;
+using AncoraMVVM.Phone.Sample.ViewModels;
 using Microsoft.Phone.Controls;
 
-namespace AncoraMVVM.Phone7.Sample.Views
+namespace AncoraMVVM.Phone.Sample.Views
 {
     [ViewModel(typeof(MainPageModel))]
     public partial class MainPage : PhoneApplicationPage

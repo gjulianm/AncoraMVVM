@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Data;
 
-namespace AncoraMVVM.Phone7.Converters
+namespace AncoraMVVM.Phone.Converters
 {
     public class BooleanToVisibilityConverter : IValueConverter
     {

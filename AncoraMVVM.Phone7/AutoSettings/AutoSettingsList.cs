@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace AncoraMVVM.Phone7.AutoSettings
+namespace AncoraMVVM.Phone.AutoSettings
 {
     public class AutoSettingsList : ItemsControl
     {

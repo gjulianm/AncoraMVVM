@@ -1,18 +1,17 @@
-﻿using AncoraMVVM.Base;
-using AncoraMVVM.Base.Interfaces;
-using AncoraMVVM.Base.IoC;
-using AncoraMVVM.Phone7;
-using AncoraMVVM.Phone7.Implementations;
-using AncoraMVVM.Phone7.Sample.Resources;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
+using AncoraMVVM.Base;
+using AncoraMVVM.Base.Interfaces;
+using AncoraMVVM.Base.IoC;
+using AncoraMVVM.Phone.Implementations;
+using AncoraMVVM.Phone.Sample.Resources;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 
-namespace AncoraMVVM.Phone7.Sample
+namespace AncoraMVVM.Phone.Sample
 {
     public partial class App : Application
     {
