@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Base", "AncoraMV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Base.Tests", "AncoraMVVM.Base.Tests\AncoraMVVM.Base.Tests.csproj", "{9EB50B69-AEF9-4030-8522-2A18E319C84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone", "AncoraMVVM.Phone7\AncoraMVVM.Phone.csproj", "{89B38CC5-A3BB-4C11-A21F-AEED6648736A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone", "AncoraMVVM.Phone\AncoraMVVM.Phone.csproj", "{89B38CC5-A3BB-4C11-A21F-AEED6648736A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Rest", "AncoraMVVM.Rest\AncoraMVVM.Rest.csproj", "{3DE0D56D-A0EE-4D60-8CE7-10F4A4922C64}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Rest.Tests", "An
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Testing", "AncoraMVVM.Testing\AncoraMVVM.Testing.csproj", "{DF5BC4D0-0F2A-4722-ACA8-4299EFCB3486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone.Sample", "AncoraMVVM.Phone7.Sample\AncoraMVVM.Phone.Sample.csproj", "{5B4E6F11-5CEC-49FC-993B-6718D3CB2E75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncoraMVVM.Phone.Sample", "AncoraMVVM.Phone.Sample\AncoraMVVM.Phone.Sample.csproj", "{5B4E6F11-5CEC-49FC-993B-6718D3CB2E75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
