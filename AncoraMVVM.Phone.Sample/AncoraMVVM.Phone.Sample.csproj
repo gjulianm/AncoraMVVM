@@ -242,7 +242,7 @@
       <Project>{56998798-C602-4805-8900-D180ABC5AABE}</Project>
       <Name>AncoraMVVM.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AncoraMVVM.Phone7\AncoraMVVM.Phone.csproj">
+    <ProjectReference Include="..\AncoraMVVM.Phone\AncoraMVVM.Phone.csproj">
       <Project>{89B38CC5-A3BB-4C11-A21F-AEED6648736A}</Project>
       <Name>AncoraMVVM.Phone</Name>
     </ProjectReference>
