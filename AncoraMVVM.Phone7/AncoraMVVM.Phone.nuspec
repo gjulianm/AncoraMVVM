@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>AncoraMVVM.Phone7</id>
+    <id>AncoraMVVM.Phone</id>
     <version>0.1.34-alpha</version>
-    <title>AncoraMVVM.Phone7</title>
+    <title>AncoraMVVM.Phone</title>
     <authors>Guillermo Julian</authors>
     <owners>Guillermo Julian</owners>
     <licenseUrl>http://www.mozilla.org/MPL/</licenseUrl>
