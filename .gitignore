@@ -154,3 +154,5 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 *.nupkg
+.nuget/packages.config
+AncoraMVVM.Phone.Sample/app.config
